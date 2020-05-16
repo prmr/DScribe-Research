@@ -1,0 +1,155 @@
+﻿{
+    "classes": [
+        {
+            "fullname": "org.apache.commons.io.FileCleaningTracker",
+            "methods": [
+                {
+                    "name": "track",
+                    "parameters": [
+                        "java.io.File",
+                        "java.lang.Object"
+                    ],
+                    "tests": [
+                        {
+                            "templateName": "template4",
+                            "placeholders": {
+                                "$ex$": "java.lang.NullPointerException",
+                                "$state$": "NullFile",
+                                "$factory$": "new FileCleaningTracker",
+                                "$params$": [
+                                    "(File) null",
+                                    "new Object()"
+                                ],
+                                "$message$": "\"The file must not be null\""
+                            }
+                        },
+                        {
+                            "templateName": "template4",
+                            "placeholders": {
+                                "$ex$": "java.lang.IllegalStateException",
+                                "$state$": "AfterExit_File",
+                                "$factory$": "FileCleaningTrackerUtils.closedTracker",
+                                "$params$": [
+                                    "new File(\"\")",
+                                    "new Object()"
+                                ],
+                                "$message$": "\"No new trackers can be added once exitWhenFinished() is called\""
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "track",
+                    "parameters": [
+                        "java.io.File",
+                        "java.lang.Object",
+                        "org.apache.commons.io.FileDeleteStrategy"
+                    ],
+                    "tests": [
+                        {
+                            "templateName": "template4",
+                            "placeholders": {
+                                "$ex$": "java.lang.NullPointerException",
+                                "$state$": "NullFile_ExplicitStrategy",
+                                "$factory$": "new FileCleaningTracker",
+                                "$params$": [
+                                    "(File) null",
+                                    "new Object()",
+                                    "FileDeleteStrategy.NORMAL"
+                                ],
+                                "$message$": "\"The file must not be null\""
+                            }
+                        },
+                        {
+                            "templateName": "template4",
+                            "placeholders": {
+                                "$ex$": "java.lang.IllegalStateException",
+                                "$state$": "AfterExit_File_ExplicitStrategy",
+                                "$factory$": "FileCleaningTrackerUtils.closedTracker",
+                                "$params$": [
+                                    "new File(\"\")",
+                                    "new Object()",
+                                    "FileDeleteStrategy.NORMAL"
+                                ],
+                                "$message$": "\"No new trackers can be added once exitWhenFinished() is called\""
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "track",
+                    "parameters": [
+                        "java.lang.String",
+                        "java.lang.Object"
+                    ],
+                    "tests": [
+                        {
+                            "templateName": "template4",
+                            "placeholders": {
+                                "$ex$": "java.lang.NullPointerException",
+                                "$state$": "NullPath",
+                                "$factory$": "new FileCleaningTracker",
+                                "$params$": [
+                                    "(String) null",
+                                    "new Object()"
+                                ],
+                                "$message$": "\"The path must not be null\""
+                            }
+                        },
+                        {
+                            "templateName": "template4",
+                            "placeholders": {
+                                "$ex$": "java.lang.IllegalStateException",
+                                "$state$": "AfterExit_String",
+                                "$factory$": "FileCleaningTrackerUtils.closedTracker",
+                                "$params$": [
+                                    "\"\"",
+                                    "new Object()"
+                                ],
+                                "$message$": "\"No new trackers can be added once exitWhenFinished() is called\""
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "track",
+                    "parameters": [
+                        "java.lang.String",
+                        "java.lang.Object",
+                        "org.apache.commons.io.FileDeleteStrategy"
+                    ],
+                    "tests": [
+                        {
+                            "templateName": "template4",
+                            "placeholders": {
+                                "$ex$": "java.lang.NullPointerException",
+                                "$state$": "NullPath_ExplicitStrategy",
+                                "$factory$": "new FileCleaningTracker",
+                                "$params$": [
+                                    "(String) null",
+                                    "new Object()",
+                                    "FileDeleteStrategy.NORMAL"
+                                ],
+                                "$message$": "\"The path must not be null\""
+                            }
+                        },
+                        {
+                            "templateName": "template4",
+                            "placeholders": {
+                                "$ex$": "java.lang.IllegalStateException",
+                                "$state$": "AfterExit_String_ExplicitStrategy",
+                                "$factory$": "FileCleaningTrackerUtils.closedTracker",
+                                "$params$": [
+                                    "\"\"",
+                                    "new Object()",
+                                    "FileDeleteStrategy.NORMAL"
+                                ],
+                                "$message$": "\"No new trackers can be added once exitWhenFinished() is called\""
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

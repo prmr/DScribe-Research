@@ -1,0 +1,595 @@
+{
+  "classes": [
+    {
+      "fullname": "org.apache.commons.io.FilenameUtils",
+      "methods": [
+        {
+          "name": "getName",
+          "parameters": [
+            "java.lang.String"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "filenameNullBytes",
+                "$factory$": "FilenameUtils",
+                "$params$": ["FilenameUtilsUtils.FILENAME_NULL_BYTES"],
+                "$message$": "\"Null byte present in file/path name. There are no known legitimate use cases for such data, but several injection attacks may use it\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "equals",
+          "parameters": [
+            "java.lang.String",
+            "java.lang.String"
+          ],
+          "tests": []
+        },
+        {
+          "name": "equals",
+          "parameters": [
+            "java.lang.String",
+            "java.lang.String",
+            "boolean",
+            "org.apache.commons.io.IOCase"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "filename1Invalid",
+                "$factory$": "FilenameUtils",
+                "$params$": ["FilenameUtilsUtils.FILENAME_INVALID", "FilenameUtilsUtils.FILENAME", "true", "null"],
+                "$message$": "\"Error normalizing one or both of the file names\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "filename2Invalid",
+                "$factory$": "FilenameUtils",
+                "$params$": ["FilenameUtilsUtils.FILENAME", "FilenameUtilsUtils.FILENAME_INVALID", "true", "null"],
+                "$message$": "\"Error normalizing one or both of the file names\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "filename1NullBytes",
+                "$factory$": "FilenameUtils",
+                "$params$": ["FilenameUtilsUtils.FILENAME_NULL_BYTES", "FilenameUtilsUtils.FILENAME", "true", "null"],
+                "$message$": "\"Null byte present in file/path name. There are no known legitimate use cases for such data, but several injection attacks may use it\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "filename2NullBytes",
+                "$factory$": "FilenameUtils",
+                "$params$": ["FilenameUtilsUtils.FILENAME", "FilenameUtilsUtils.FILENAME_NULL_BYTES", "true", "null"],
+                "$message$": "\"Null byte present in file/path name. There are no known legitimate use cases for such data, but several injection attacks may use it\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "concat",
+          "parameters": [
+            "java.lang.String",
+            "java.lang.String"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "fullFilenameToAdd_nullBytes",
+                "$factory$": "FilenameUtils",
+                "$params$": ["\"base\"", "FilenameUtilsUtils.FILENAME_NULL_BYTES"],
+                "$message$": "\"Null byte present in file/path name. There are no known legitimate use cases for such data, but several injection attacks may use it\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "normalize",
+          "parameters": [
+            "java.lang.String",
+            "boolean"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "unixSeparator_filenameNullBytes",
+                "$factory$": "FilenameUtils",
+                "$params$": ["FilenameUtilsUtils.FILENAME_NULL_BYTES", "true"],
+                "$message$": "\"Null byte present in file/path name. There are no known legitimate use cases for such data, but several injection attacks may use it\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "normalize",
+          "parameters": [
+            "java.lang.String"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "filenameNullBytes",
+                "$factory$": "FilenameUtils",
+                "$params$": ["FilenameUtilsUtils.FILENAME_NULL_BYTES"],
+                "$message$": "\"Null byte present in file/path name. There are no known legitimate use cases for such data, but several injection attacks may use it\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "getPath",
+          "parameters": [
+            "java.lang.String"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "filenameNullBytes",
+                "$factory$": "FilenameUtils",
+                "$params$": ["FilenameUtilsUtils.FILENAME_NULL_BYTES"],
+                "$message$": "\"Null byte present in file/path name. There are no known legitimate use cases for such data, but several injection attacks may use it\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "getPrefixLength",
+          "parameters": [
+            "java.lang.String"
+          ],
+          "tests": []
+        },
+        {
+          "name": "getExtension",
+          "parameters": [
+            "java.lang.String"
+          ],
+          "tests": []
+        },
+        {
+          "name": "isSystemWindows",
+          "parameters": [],
+          "tests": []
+        },
+        {
+          "name": "isSeparator",
+          "parameters": [
+            "char"
+          ],
+          "tests": []
+        },
+        {
+          "name": "normalizeNoEndSeparator",
+          "parameters": [
+            "java.lang.String",
+            "boolean"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "unixSeparator_filenameNullBytes",
+                "$factory$": "FilenameUtils",
+                "$params$": ["FilenameUtilsUtils.FILENAME_NULL_BYTES", "true"],
+                "$message$": "\"Null byte present in file/path name. There are no known legitimate use cases for such data, but several injection attacks may use it\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "normalizeNoEndSeparator",
+          "parameters": [
+            "java.lang.String"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "filenameNullBytes",
+                "$factory$": "FilenameUtils",
+                "$params$": ["FilenameUtilsUtils.FILENAME_NULL_BYTES"],
+                "$message$": "\"Null byte present in file/path name. There are no known legitimate use cases for such data, but several injection attacks may use it\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "doNormalize",
+          "parameters": [
+            "java.lang.String",
+            "char",
+            "boolean"
+          ],
+          "tests": []
+        },
+        {
+          "name": "directoryContains",
+          "parameters": [
+            "java.lang.String",
+            "java.lang.String"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "canonicalParentNull",
+                "$factory$": "FilenameUtils",
+                "$params$": ["(String) null", "\"a.txt\""],
+                "$message$": "\"Directory must not be null\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "separatorsToUnix",
+          "parameters": [
+            "java.lang.String"
+          ],
+          "tests": []
+        },
+        {
+          "name": "separatorsToWindows",
+          "parameters": [
+            "java.lang.String"
+          ],
+          "tests": []
+        },
+        {
+          "name": "separatorsToSystem",
+          "parameters": [
+            "java.lang.String"
+          ],
+          "tests": []
+        },
+        {
+          "name": "indexOfLastSeparator",
+          "parameters": [
+            "java.lang.String"
+          ],
+          "tests": []
+        },
+        {
+          "name": "indexOfExtension",
+          "parameters": [
+            "java.lang.String"
+          ],
+          "tests": []
+        },
+        {
+          "name": "getPrefix",
+          "parameters": [
+            "java.lang.String"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "filenameNullBytes",
+                "$factory$": "FilenameUtils",
+                "$params$": ["FilenameUtilsUtils.FILENAME_NULL_BYTES"],
+                "$message$": "\"Null byte present in file/path name. There are no known legitimate use cases for such data, but several injection attacks may use it\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "getPathNoEndSeparator",
+          "parameters": [
+            "java.lang.String"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "filenameNullBytes",
+                "$factory$": "FilenameUtils",
+                "$params$": ["FilenameUtilsUtils.FILENAME_NULL_BYTES"],
+                "$message$": "\"Null byte present in file/path name. There are no known legitimate use cases for such data, but several injection attacks may use it\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "doGetPath",
+          "parameters": [
+            "java.lang.String",
+            "int"
+          ],
+          "tests": []
+        },
+        {
+          "name": "getFullPath",
+          "parameters": [
+            "java.lang.String"
+          ],
+          "tests": []
+        },
+        {
+          "name": "getFullPathNoEndSeparator",
+          "parameters": [
+            "java.lang.String"
+          ],
+          "tests": []
+        },
+        {
+          "name": "doGetFullPath",
+          "parameters": [
+            "java.lang.String",
+            "boolean"
+          ],
+          "tests": []
+        },
+        {
+          "name": "failIfNullBytePresent",
+          "parameters": [
+            "java.lang.String"
+          ],
+          "tests": []
+        },
+        {
+          "name": "getBaseName",
+          "parameters": [
+            "java.lang.String"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "filenameNullBytes",
+                "$factory$": "FilenameUtils",
+                "$params$": ["FilenameUtilsUtils.FILENAME_NULL_BYTES"],
+                "$message$": "\"Null byte present in file/path name. There are no known legitimate use cases for such data, but several injection attacks may use it\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "removeExtension",
+          "parameters": [
+            "java.lang.String"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "filenameNullBytes",
+                "$factory$": "FilenameUtils",
+                "$params$": ["FilenameUtilsUtils.FILENAME_NULL_BYTES"],
+                "$message$": "\"Null byte present in file/path name. There are no known legitimate use cases for such data, but several injection attacks may use it\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "equalsOnSystem",
+          "parameters": [
+            "java.lang.String",
+            "java.lang.String"
+          ],
+          "tests": []
+        },
+        {
+          "name": "equalsNormalized",
+          "parameters": [
+            "java.lang.String",
+            "java.lang.String"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "filename1Invalid",
+                "$factory$": "FilenameUtils",
+                "$params$": ["FilenameUtilsUtils.FILENAME_INVALID","FilenameUtilsUtils.FILENAME"],
+                "$message$": "\"Error normalizing one or both of the file names\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "filename2Invalid",
+                "$factory$": "FilenameUtils",
+                "$params$": ["FilenameUtilsUtils.FILENAME", "FilenameUtilsUtils.FILENAME_INVALID"],
+                "$message$": "\"Error normalizing one or both of the file names\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "filename1NullBytes",
+                "$factory$": "FilenameUtils",
+                "$params$": ["FilenameUtilsUtils.FILENAME_NULL_BYTES", "FilenameUtilsUtils.FILENAME"],
+                "$message$": "\"Null byte present in file/path name. There are no known legitimate use cases for such data, but several injection attacks may use it\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "filename2NullBytes",
+                "$factory$": "FilenameUtils",
+                "$params$": ["FilenameUtilsUtils.FILENAME", "FilenameUtilsUtils.FILENAME_NULL_BYTES"],
+                "$message$": "\"Null byte present in file/path name. There are no known legitimate use cases for such data, but several injection attacks may use it\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "equalsNormalizedOnSystem",
+          "parameters": [
+            "java.lang.String",
+            "java.lang.String"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "filename1Invalid",
+                "$factory$": "FilenameUtils",
+                "$params$": ["FilenameUtilsUtils.FILENAME_INVALID","FilenameUtilsUtils.FILENAME"],
+                "$message$": "\"Error normalizing one or both of the file names\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "filename2Invalid",
+                "$factory$": "FilenameUtils",
+                "$params$": ["FilenameUtilsUtils.FILENAME", "FilenameUtilsUtils.FILENAME_INVALID"],
+                "$message$": "\"Error normalizing one or both of the file names\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "filename1NullBytes",
+                "$factory$": "FilenameUtils",
+                "$params$": ["FilenameUtilsUtils.FILENAME_NULL_BYTES", "FilenameUtilsUtils.FILENAME"],
+                "$message$": "\"Null byte present in file/path name. There are no known legitimate use cases for such data, but several injection attacks may use it\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "filename2NullBytes",
+                "$factory$": "FilenameUtils",
+                "$params$": ["FilenameUtilsUtils.FILENAME", "FilenameUtilsUtils.FILENAME_NULL_BYTES"],
+                "$message$": "\"Null byte present in file/path name. There are no known legitimate use cases for such data, but several injection attacks may use it\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "isExtension",
+          "parameters": [
+            "java.lang.String",
+            "java.lang.String"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "string_filenameNullBytes",
+                "$factory$": "FilenameUtils",
+                "$params$": ["FilenameUtilsUtils.FILENAME_NULL_BYTES", "\"txt\""],
+                "$message$": "\"Null byte present in file/path name. There are no known legitimate use cases for such data, but several injection attacks may use it\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "isExtension",
+          "parameters": [
+            "java.lang.String",
+            "java.util.Collection"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "collection_filenameNullBytes",
+                "$factory$": "FilenameUtils",
+                "$params$": ["FilenameUtilsUtils.FILENAME_NULL_BYTES", "(Collection<String>) null"],
+                "$message$": "\"Null byte present in file/path name. There are no known legitimate use cases for such data, but several injection attacks may use it\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "isExtension",
+          "parameters": [
+            "java.lang.String",
+            "java.lang.String[]"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "array_filenameNullBytes",
+                "$factory$": "FilenameUtils",
+                "$params$": ["FilenameUtilsUtils.FILENAME_NULL_BYTES", "new String[]{\"txt\"}"],
+                "$message$": "\"Null byte present in file/path name. There are no known legitimate use cases for such data, but several injection attacks may use it\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "wildcardMatch",
+          "parameters": [
+            "java.lang.String",
+            "java.lang.String"
+          ],
+          "tests": []
+        },
+        {
+          "name": "wildcardMatch",
+          "parameters": [
+            "java.lang.String",
+            "java.lang.String",
+            "org.apache.commons.io.IOCase"
+          ],
+          "tests": []
+        },
+        {
+          "name": "wildcardMatchOnSystem",
+          "parameters": [
+            "java.lang.String",
+            "java.lang.String"
+          ],
+          "tests": []
+        },
+        {
+          "name": "splitOnTokens",
+          "parameters": [
+            "java.lang.String"
+          ],
+          "tests": []
+        },
+        {
+          "name": "FilenameUtils",
+          "parameters": [],
+          "tests": []
+        }
+      ]
+    }
+  ]
+}

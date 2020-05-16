@@ -1,0 +1,4816 @@
+{
+  "classes": [
+    {
+      "fullname": "org.apache.commons.io.FileUtils",
+      "methods": [
+        {
+          "name": "contentEquals",
+          "parameters": [
+            "java.io.File",
+            "java.io.File"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "file1Dir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.file()"],
+                "$message$": "\"Can't compare directories, only files\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "file2Dir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.dir()"],
+                "$message$": "\"Can't compare directories, only files\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "file1Null",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.file()"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "file2Null",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "(File) null"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "write",
+          "parameters": [
+            "java.io.File",
+            "java.lang.CharSequence",
+            "java.nio.charset.Charset",
+            "boolean"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "charsetWithAppend_fileIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "\"test\"", "StandardCharsets.UTF_8", "true"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "charsetWithAppend_fileNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotWritable()", "\"test\"", "StandardCharsets.UTF_8", "true"],
+                "$message$": "\"File 'testResources/file-not-writable.txt' cannot be written to\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "charsetWithAppend_parentMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileParentMkdirFails()",  "\"test\"", "StandardCharsets.UTF_8", "true"],
+                "$message$": "\"Directory 'testResources/dirMkdirFails' could not be created\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "charsetWithAppend_fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "\"test\"", "StandardCharsets.UTF_8", "true"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "write",
+          "parameters": [
+            "java.io.File",
+            "java.lang.CharSequence",
+            "java.lang.String",
+            "boolean"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "stringWithAppend_fileIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "\"test\"", "FileUtilsUtils.CHARSET_VALID", "true"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "stringWithAppend_fileNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotWritable()", "\"test\"", "FileUtilsUtils.CHARSET_VALID", "true"],
+                "$message$": "\"File 'testResources/file-not-writable.txt' cannot be written to\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "stringWithAppend_parentMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileParentMkdirFails()", "\"test\"", "FileUtilsUtils.CHARSET_VALID", "true"],
+                "$message$": "\"Directory 'testResources/dirMkdirFails' could not be created\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "stringWithAppend_fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "\"test\"", "FileUtilsUtils.CHARSET_VALID", "true"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.UnsupportedCharsetException",
+                "$state$": "stringWithAppend_encodingUnsupported",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "\"test\"", "FileUtilsUtils.CHARSET_UNSUPPORTED", "true"],
+                "$message$": "FileUtilsUtils.CHARSET_UNSUPPORTED"
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.IllegalCharsetNameException",
+                "$state$": "stringWithAppend_encodingIllegal",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "\"test\"", "FileUtilsUtils.CHARSET_ILLEGAL", "true"],
+                "$message$": "FileUtilsUtils.CHARSET_ILLEGAL"
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "write",
+          "parameters": [
+            "java.io.File",
+            "java.lang.CharSequence"
+          ],
+          "tests": []
+        },
+        {
+          "name": "write",
+          "parameters": [
+            "java.io.File",
+            "java.lang.CharSequence",
+            "boolean"
+          ],
+          "tests": []
+        },
+        {
+          "name": "write",
+          "parameters": [
+            "java.io.File",
+            "java.lang.CharSequence",
+            "java.nio.charset.Charset"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "charset_fileIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "\"test\"", "StandardCharsets.UTF_8"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "charset_fileNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotWritable()", "\"test\"", "StandardCharsets.UTF_8"],
+                "$message$": "\"File 'testResources/file-not-writable.txt' cannot be written to\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "charset_parentMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileParentMkdirFails()", "\"test\"", "StandardCharsets.UTF_8"],
+                "$message$": "\"Directory 'testResources/dirMkdirFails' could not be created\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "charset_fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "\"test\"", "StandardCharsets.UTF_8"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "write",
+          "parameters": [
+            "java.io.File",
+            "java.lang.CharSequence",
+            "java.lang.String"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "string_fileIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "\"test\"", "FileUtilsUtils.CHARSET_VALID"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "string_fileNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotWritable()", "\"test\"", "FileUtilsUtils.CHARSET_VALID"],
+                "$message$": "\"File 'testResources/file-not-writable.txt' cannot be written to\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "string_parentMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileParentMkdirFails()", "\"test\"", "FileUtilsUtils.CHARSET_VALID"],
+                "$message$": "\"Directory 'testResources/dirMkdirFails' could not be created\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "string_fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "\"test\"", "FileUtilsUtils.CHARSET_VALID"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.UnsupportedCharsetException",
+                "$state$": "string_encodingUnsupported",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "\"test\"", "FileUtilsUtils.CHARSET_UNSUPPORTED"],
+                "$message$": "FileUtilsUtils.CHARSET_UNSUPPORTED"
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.IllegalCharsetNameException",
+                "$state$": "string_encodingIllegal",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "\"test\"", "FileUtilsUtils.CHARSET_ILLEGAL"],
+                "$message$": "FileUtilsUtils.CHARSET_ILLEGAL"
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "getFile",
+          "parameters": [
+            "java.lang.String[]"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "namesNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()",  "(String[]) null"],
+                "$message$": "\"names must not be null\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "getFile",
+          "parameters": [
+            "java.io.File",
+            "java.lang.String[]"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "withParent_dirNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null",  "\"src\""],
+                "$message$": "\"directory must not be null\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "withParent_namesNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()",  "(String[]) null"],
+                "$message$": "\"names must not be null\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "toFile",
+          "parameters": [
+            "java.net.URL"
+          ],
+          "tests": []
+        },
+        {
+          "name": "listFiles",
+          "parameters": [
+            "java.io.File",
+            "org.apache.commons.io.filefilter.IOFileFilter",
+            "org.apache.commons.io.filefilter.IOFileFilter"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "withFileFilter_dirNotADir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileFilterUtils.trueFileFilter()", "null"],
+                "$message$": "\"Parameter 'directory' is not a directory: testResources/file.txt\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "withFileFilter_fileFilterNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "(IOFileFilter) null", "null"],
+                "$message$": "\"Parameter 'fileFilter' is null\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "withFileFilter_dirNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileFilterUtils.trueFileFilter()", "null"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "listFiles",
+          "parameters": [
+            "java.io.File",
+            "java.lang.String[]",
+            "boolean"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "withExtensions_dirNotADir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "new String[]{\"xml\", \"txt\"}", "false"],
+                "$message$": "\"Parameter 'directory' is not a directory: testResources/file.txt\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "withExtensions_dirNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "new String[]{\"xml\", \"txt\"}", "false"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "checksum",
+          "parameters": [
+            "java.io.File",
+            "java.util.zip.Checksum"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "new CRC32()"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "checksumNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "(Checksum) null"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "fileDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "new CRC32()"],
+                "$message$": "\"Checksums can't be computed on directories\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "fileNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNonExistent()", "new CRC32()"],
+                "$message$": "\"testResources/file-non-existent.txt (No such file or directory)\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "fileNotReadable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotReadable()", "new CRC32()"],
+                "$message$": "\"testResources/file-not-readable.txt (Permission denied)\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "getTempDirectoryPath",
+          "parameters": [],
+          "tests": []
+        },
+        {
+          "name": "getTempDirectory",
+          "parameters": [],
+          "tests": []
+        },
+        {
+          "name": "getUserDirectoryPath",
+          "parameters": [],
+          "tests": []
+        },
+        {
+          "name": "getUserDirectory",
+          "parameters": [],
+          "tests": []
+        },
+        {
+          "name": "openInputStream",
+          "parameters": [
+            "java.io.File"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.FileNotFoundException",
+                "$state$": "fileNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNonExistent()"],
+                "$message$": "\"File 'testResources/file-non-existent.txt' does not exist\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "fileIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "fileNotReadable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotReadable()"],
+                "$message$": "\"File 'testResources/file-not-readable.txt' cannot be read\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "openOutputStream",
+          "parameters": [
+            "java.io.File"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "fileIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "fileNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotWritable()"],
+                "$message$": "\"File 'testResources/file-not-writable.txt' cannot be written to\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "parentMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileParentMkdirFails()"],
+                "$message$": "\"Directory 'testResources/dirMkdirFails' could not be created\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "openOutputStream",
+          "parameters": [
+            "java.io.File",
+            "boolean"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "append_fileIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "true"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "append_fileNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotWritable()", "true"],
+                "$message$": "\"File 'testResources/file-not-writable.txt' cannot be written to\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "append_parentMkdirFail",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileParentMkdirFails()", "true"],
+                "$message$": "\"Directory 'testResources/dirMkdirFails' could not be created\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "append_fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "true"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "byteCountToDisplaySize",
+          "parameters": [
+            "long"
+          ],
+          "tests": []
+        },
+        {
+          "name": "byteCountToDisplaySize",
+          "parameters": [
+            "java.math.BigInteger"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "bigInteger_sizeNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(BigInteger) null"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "touch",
+          "parameters": [
+            "java.io.File"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "setLastModifiedFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileSetLastModifiedFails()"],
+                "$message$": "\"Unable to set the last modification time for testResources/set-last-modified-fails.txt\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "parentMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileParentMkdirFails()"],
+                "$message$": "\"Directory 'testResources/dirMkdirFails' could not be created\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "convertFileCollectionToFileArray",
+          "parameters": [
+            "java.util.Collection"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "filesNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(Collection<File>) null"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "innerListFiles",
+          "parameters": [
+            "java.util.Collection",
+            "java.io.File",
+            "org.apache.commons.io.filefilter.IOFileFilter",
+            "boolean"
+          ],
+          "tests": []
+        },
+        {
+          "name": "validateListFilesParameters",
+          "parameters": [
+            "java.io.File",
+            "org.apache.commons.io.filefilter.IOFileFilter"
+          ],
+          "tests": []
+        },
+        {
+          "name": "setUpEffectiveFileFilter",
+          "parameters": [
+            "org.apache.commons.io.filefilter.IOFileFilter"
+          ],
+          "tests": []
+        },
+        {
+          "name": "setUpEffectiveDirFilter",
+          "parameters": [
+            "org.apache.commons.io.filefilter.IOFileFilter"
+          ],
+          "tests": []
+        },
+        {
+          "name": "listFilesAndDirs",
+          "parameters": [
+            "java.io.File",
+            "org.apache.commons.io.filefilter.IOFileFilter",
+            "org.apache.commons.io.filefilter.IOFileFilter"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "dirNotADir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileFilterUtils.trueFileFilter()", "null"],
+                "$message$": "\"Parameter 'directory' is not a directory: testResources/file.txt\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "fileFilterNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "(IOFileFilter) null", "null"],
+                "$message$": "\"Parameter 'fileFilter' is null\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "dirNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileFilterUtils.trueFileFilter()", "null"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "iterateFiles",
+          "parameters": [
+            "java.io.File",
+            "java.lang.String[]",
+            "boolean"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "withExtensions_dirNotADir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "new String[]{\"xml\", \"txt\"}", "false"],
+                "$message$": "\"Parameter 'directory' is not a directory: testResources/file.txt\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "withExtensions_dirNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "new String[]{\"xml\", \"txt\"}", "false"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "iterateFiles",
+          "parameters": [
+            "java.io.File",
+            "org.apache.commons.io.filefilter.IOFileFilter",
+            "org.apache.commons.io.filefilter.IOFileFilter"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "withFileFilter_dirNotADir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileFilterUtils.trueFileFilter()", "null"],
+                "$message$": "\"Parameter 'directory' is not a directory: testResources/file.txt\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "withFileFilter_fileFilterNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "(IOFileFilter) null", "null"],
+                "$message$": "\"Parameter 'fileFilter' is null\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "withFileFilter_dirNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileFilterUtils.trueFileFilter()", "null"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "iterateFilesAndDirs",
+          "parameters": [
+            "java.io.File",
+            "org.apache.commons.io.filefilter.IOFileFilter",
+            "org.apache.commons.io.filefilter.IOFileFilter"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "dirNotADir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileFilterUtils.trueFileFilter()", "null"],
+                "$message$": "\"Parameter 'directory' is not a directory: testResources/file.txt\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "fileFilterNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "(IOFileFilter) null", "null"],
+                "$message$": "\"Parameter 'fileFilter' is null\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "dirNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileFilterUtils.trueFileFilter()", "null"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "toSuffixes",
+          "parameters": [
+            "java.lang.String[]"
+          ],
+          "tests": []
+        },
+        {
+          "name": "contentEqualsIgnoreEOL",
+          "parameters": [
+            "java.io.File",
+            "java.io.File",
+            "java.lang.String"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "file1Dir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.file()", "null"],
+                "$message$": "\"Can't compare directories, only files\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "file2Dir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.dir()", "null"],
+                "$message$": "\"Can't compare directories, only files\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "file1Null",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.file()", "null"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "file2Null",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "(File) null", "null"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "decodeUrl",
+          "parameters": [
+            "java.lang.String"
+          ],
+          "tests": []
+        },
+        {
+          "name": "toFiles",
+          "parameters": [
+            "java.net.URL[]"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "notURLFile",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.URLS()"],
+                "$message$": "\"URL could not be converted to a File: http://test.orgfile.txt\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "toURLs",
+          "parameters": [
+            "java.io.File[]"
+          ],
+          "tests": []
+        },
+        {
+          "name": "copyFileToDirectory",
+          "parameters": [
+            "java.io.File",
+            "java.io.File"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "srcNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.dir()"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "destNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "(File) null"],
+                "$message$": "\"Destination must not be null\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "destNotDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.file()"],
+                "$message$": "\"Destination 'testResources/file.txt' is not a directory\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "srcNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNonExistent()", "FileUtilsUtils.dir()"],
+                "$message$": "\"Source 'testResources/file-non-existent.txt' does not exist\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "srcIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.dir()"],
+                "$message$": "\"Source 'testResources/dir' exists but is a directory\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "srcExistsInDest",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotWritable()", "FileUtilsUtils.ROOT"],
+                "$message$": "\"Source 'testResources/file-not-writable.txt' and destination 'testResources/file-not-writable.txt' are the same\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "copyIOException",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotReadable()", "FileUtilsUtils.dir()"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "copyFileToDirectory",
+          "parameters": [
+            "java.io.File",
+            "java.io.File",
+            "boolean"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "bool_srcNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.dir()", "true"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "bool_destNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "(File) null", "true"],
+                "$message$": "\"Destination must not be null\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "bool_destNotDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.file()", "true"],
+                "$message$": "\"Destination 'testResources/file.txt' is not a directory\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "bool_srcNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNonExistent()", "FileUtilsUtils.dir()", "true"],
+                "$message$": "\"Source 'testResources/file-non-existent.txt' does not exist\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "bool_srcIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.dir()", "true"],
+                "$message$": "\"Source 'testResources/dir' exists but is a directory\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "bool_srcExistsInDest",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotWritable()", "FileUtilsUtils.ROOT", "true"],
+                "$message$": "\"Source 'testResources/file-not-writable.txt' and destination 'testResources/file-not-writable.txt' are the same\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "bool_copyIOException",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotReadable()", "FileUtilsUtils.dir()", "true"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "copyFile",
+          "parameters": [
+            "java.io.File",
+            "java.io.File",
+            "boolean"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "bool_srcNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.file()", "true"],
+                "$message$": "\"Source must not be null\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "bool_destNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "(File) null", "true"],
+                "$message$": "\"Destination must not be null\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "bool_srcNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNonExistent()", "FileUtilsUtils.file()", "true"],
+                "$message$": "\"Source 'testResources/file-non-existent.txt' does not exist\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "bool_srcIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.file()", "true"],
+                "$message$": "\"Source 'testResources/dir' exists but is a directory\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "bool_srcAndDestSame",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.file()", "true"],
+                "$message$": "\"Source 'testResources/file.txt' and destination 'testResources/file.txt' are the same\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "bool_destReadOnly",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.fileNotWritable()", "true"],
+                "$message$": "\"Destination 'testResources/file-not-writable.txt' exists but is read-only\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "bool_destIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.dir()", "true"],
+                "$message$": "\"Destination 'testResources/dir' exists but is a directory\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "bool_destParentMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.fileParentMkdirFails()", "true"],
+                "$message$": "\"Directory 'testResources/dirMkdirFails' could not be created\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "bool_destOutputShorter",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.fileShorter()", "true"],
+                "$message$": "\"Failed to copy full contents from 'testResources/file.txt' to 'testResources/file-shorter.txt' Expected length: 25 Actual: 24\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "bool_copyIOException",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotReadable()", "FileUtilsUtils.file()", "true"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "copyFile",
+          "parameters": [
+            "java.io.File",
+            "java.io.OutputStream"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "toOutputStream_inNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.outputStream()"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "toOutputStream_outNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "(OutputStream) null"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "toOutputStream_inNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNonExistent()", "FileUtilsUtils.outputStream()"],
+                "$message$": "\"testResources/file-non-existent.txt (No such file or directory)\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "toOutputStream_inIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.outputStream()"],
+                "$message$": "\"testResources/dir (Is a directory)\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "toOutputStream_inNotReadable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotReadable()", "FileUtilsUtils.outputStream()"],
+                "$message$": "\"testResources/file-not-readable.txt (Permission denied)\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "toOutputStream_writeIOException",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.outputStreamIOException()"],
+                "$message$": "\"write\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "copyFile",
+          "parameters": [
+            "java.io.File",
+            "java.io.File"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "srcNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.file()"],
+                "$message$": "\"Source must not be null\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "destNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "(File) null"],
+                "$message$": "\"Destination must not be null\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "srcNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNonExistent()", "FileUtilsUtils.file()"],
+                "$message$": "\"Source 'testResources/file-non-existent.txt' does not exist\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "srcIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.file()"],
+                "$message$": "\"Source 'testResources/dir' exists but is a directory\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "srcAndDestSame",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.file()"],
+                "$message$": "\"Source 'testResources/file.txt' and destination 'testResources/file.txt' are the same\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "destReadOnly",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.fileNotWritable()"],
+                "$message$": "\"Destination 'testResources/file-not-writable.txt' exists but is read-only\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "destIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.dir()"],
+                "$message$": "\"Destination 'testResources/dir' exists but is a directory\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "destParentMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.fileParentMkdirFails()"],
+                "$message$": "\"Directory 'testResources/dirMkdirFails' could not be created\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "destOutputShorter",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.fileShorter()"],
+                "$message$": "\"Failed to copy full contents from 'testResources/file.txt' to 'testResources/file-shorter.txt' Expected length: 25 Actual: 24\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "copyIOException",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotReadable()", "FileUtilsUtils.file()"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "doCopyFile",
+          "parameters": [
+            "java.io.File",
+            "java.io.File",
+            "boolean"
+          ],
+          "tests": []
+        },
+        {
+          "name": "copyDirectoryToDirectory",
+          "parameters": [
+            "java.io.File",
+            "java.io.File"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "srcNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.dir()"],
+                "$message$": "\"Source must not be null\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "destNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "(File) null"],
+                "$message$": "\"Destination must not be null\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "srcNotDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.dir()"],
+                "$message$": "\"Source 'testResources/dir' is not a directory\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "srcNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dirNonExistent()", "FileUtilsUtils.dir()"],
+                "$message$": "\"Source 'testResources/dirNonExistent' does not exist\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "destNotDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.file()"],
+                "$message$": "\"Destination 'testResources/file.txt' is not a directory\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "srcNotReadable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dirNotReadable()", "FileUtilsUtils.dir()"],
+                "$message$": "\"Failed to list contents of testResources/dirNotReadable\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "destNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.dirNotWritable()"],
+                "$message$": "\"Destination 'testResources/dirNotWritable/dir' directory cannot be created\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "copyDirectory",
+          "parameters": [
+            "java.io.File",
+            "java.io.File",
+            "boolean"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "bool_srcNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.dir()", "true"],
+                "$message$": "\"Source must not be null\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "bool_destNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "(File) null", "true"],
+                "$message$": "\"Destination must not be null\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "bool_destNotDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.file()", "true"],
+                "$message$": "\"Destination 'testResources/file.txt' exists but is not a directory\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "bool_srcNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNonExistent()", "FileUtilsUtils.dir()", "true"],
+                "$message$": "\"Source 'testResources/file-non-existent.txt' does not exist\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "bool_srcNotDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.dir()", "true"],
+                "$message$": "\"Source 'testResources/file.txt' exists but is not a directory\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "bool_sameSrcAndDest",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.dir()", "true"],
+                "$message$": "\"Source 'testResources/dir' and destination 'testResources/dir' are the same\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "bool_srcNotReadable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dirNotReadable()", "FileUtilsUtils.dir()", "true"],
+                "$message$": "\"Failed to list contents of testResources/dirNotReadable\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "bool_destDirMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.fileMkdirFails()", "true"],
+                "$message$": "\"Destination 'testResources/dirMkdirFails' directory cannot be created\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "bool_destDirNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.dirNotWritable()", "true"],
+                "$message$": "\"Destination 'testResources/dirNotWritable' cannot be written to\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "copyDirectory",
+          "parameters": [
+            "java.io.File",
+            "java.io.File",
+            "java.io.FileFilter"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "filter_srcNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.dir()", "FileUtilsUtils.TXT_FILTER"],
+                "$message$": "\"Source must not be null\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "filter_destNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "(File) null", "FileUtilsUtils.TXT_FILTER"],
+                "$message$": "\"Destination must not be null\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "filter_destNotDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.file()", "FileUtilsUtils.TXT_FILTER"],
+                "$message$": "\"Destination 'testResources/file.txt' exists but is not a directory\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "filter_srcNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNonExistent()", "FileUtilsUtils.dir()", "FileUtilsUtils.TXT_FILTER"],
+                "$message$": "\"Source 'testResources/file-non-existent.txt' does not exist\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "filter_srcNotDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.dir()", "FileUtilsUtils.TXT_FILTER"],
+                "$message$": "\"Source 'testResources/file.txt' exists but is not a directory\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "filter_sameSrcAndDest",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.dir()", "FileUtilsUtils.TXT_FILTER"],
+                "$message$": "\"Source 'testResources/dir' and destination 'testResources/dir' are the same\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "filter_srcNotReadable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dirNotReadable()", "FileUtilsUtils.dir()", "FileUtilsUtils.TXT_FILTER"],
+                "$message$": "\"Failed to list contents of testResources/dirNotReadable\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "filter_destDirMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.fileMkdirFails()", "FileUtilsUtils.TXT_FILTER"],
+                "$message$": "\"Destination 'testResources/dirMkdirFails' directory cannot be created\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "filter_destDirNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.dirNotWritable()", "FileUtilsUtils.TXT_FILTER"],
+                "$message$": "\"Destination 'testResources/dirNotWritable' cannot be written to\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "copyDirectory",
+          "parameters": [
+            "java.io.File",
+            "java.io.File"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "srcNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.dir()"],
+                "$message$": "\"Source must not be null\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "destNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "(File) null"],
+                "$message$": "\"Destination must not be null\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "destNotDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.file()"],
+                "$message$": "\"Destination 'testResources/file.txt' exists but is not a directory\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "srcNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNonExistent()", "FileUtilsUtils.dir()"],
+                "$message$": "\"Source 'testResources/file-non-existent.txt' does not exist\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "srcNotDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.dir()"],
+                "$message$": "\"Source 'testResources/file.txt' exists but is not a directory\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "sameSrcAndDest",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.dir()"],
+                "$message$": "\"Source 'testResources/dir' and destination 'testResources/dir' are the same\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "srcNotReadable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dirNotReadable()", "FileUtilsUtils.dir()"],
+                "$message$": "\"Failed to list contents of testResources/dirNotReadable\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "destDirMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.fileMkdirFails()"],
+                "$message$": "\"Destination 'testResources/dirMkdirFails' directory cannot be created\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "destDirNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.dirNotWritable()"],
+                "$message$": "\"Destination 'testResources/dirNotWritable' cannot be written to\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "copyDirectory",
+          "parameters": [
+            "java.io.File",
+            "java.io.File",
+            "java.io.FileFilter",
+            "boolean"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "boolAndfilter_srcNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.dir()", "FileUtilsUtils.TXT_FILTER", "true"],
+                "$message$": "\"Source must not be null\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "boolAndfilter_destNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "(File) null", "FileUtilsUtils.TXT_FILTER", "true"],
+                "$message$": "\"Destination must not be null\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "boolAndfilter_destNotDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.file()", "FileUtilsUtils.TXT_FILTER", "true"],
+                "$message$": "\"Destination 'testResources/file.txt' exists but is not a directory\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "boolAndfilter_srcNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNonExistent()", "FileUtilsUtils.dir()", "FileUtilsUtils.TXT_FILTER", "true"],
+                "$message$": "\"Source 'testResources/file-non-existent.txt' does not exist\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "boolAndfilter_srcNotDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.dir()", "FileUtilsUtils.TXT_FILTER", "true"],
+                "$message$": "\"Source 'testResources/file.txt' exists but is not a directory\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "boolAndfilter_sameSrcAndDest",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.dir()", "FileUtilsUtils.TXT_FILTER", "true"],
+                "$message$": "\"Source 'testResources/dir' and destination 'testResources/dir' are the same\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "boolAndfilter_srcNotReadable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dirNotReadable()", "FileUtilsUtils.dir()", "FileUtilsUtils.TXT_FILTER", "true"],
+                "$message$": "\"Failed to list contents of testResources/dirNotReadable\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "boolAndfilter_destDirMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.fileMkdirFails()", "FileUtilsUtils.TXT_FILTER", "true"],
+                "$message$": "\"Destination 'testResources/dirMkdirFails' directory cannot be created\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "boolAndfilter_destDirNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.dirNotWritable()", "FileUtilsUtils.TXT_FILTER", "true"],
+                "$message$": "\"Destination 'testResources/dirNotWritable' cannot be written to\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "checkFileRequirements",
+          "parameters": [
+            "java.io.File",
+            "java.io.File"
+          ],
+          "tests": []
+        },
+        {
+          "name": "doCopyDirectory",
+          "parameters": [
+            "java.io.File",
+            "java.io.File",
+            "java.io.FileFilter",
+            "boolean",
+            "java.util.List"
+          ],
+          "tests": []
+        },
+        {
+          "name": "copyURLToFile",
+          "parameters": [
+            "java.net.URL",
+            "java.io.File"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "destIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.URL()", "FileUtilsUtils.dir()"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "destNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.URL()", "FileUtilsUtils.fileNotWritable()"],
+                "$message$": "\"File 'testResources/file-not-writable.txt' cannot be written to\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "destParentMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.URL()", "FileUtilsUtils.fileParentMkdirFails()"],
+                "$message$": "\"Directory 'testResources/dirMkdirFails' could not be created\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "srcNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(URL) null", "FileUtilsUtils.file()"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "destNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.URL()", "(File) null"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "copyURLToFile",
+          "parameters": [
+            "java.net.URL",
+            "java.io.File",
+            "int",
+            "int"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "timeout_destIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.URL()", "FileUtilsUtils.dir()", "500", "500"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "timeout_destNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.URL()", "FileUtilsUtils.fileNotWritable()", "500", "500"],
+                "$message$": "\"File 'testResources/file-not-writable.txt' cannot be written to\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "timeout_destParentMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.URL()", "FileUtilsUtils.fileParentMkdirFails()", "500", "500"],
+                "$message$": "\"Directory 'testResources/dirMkdirFails' could not be created\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "timeout_srcNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(URL) null", "FileUtilsUtils.file()", "500", "500"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "timeout_destNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.URL()", "(File) null", "500", "500"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "copyInputStreamToFile",
+          "parameters": [
+            "java.io.InputStream",
+            "java.io.File"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "srcNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(InputStream) null", "FileUtilsUtils.file()"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "destNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.inputStream()", "(File) null"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "destIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.inputStream()", "FileUtilsUtils.dir()"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "destNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.inputStream()", "FileUtilsUtils.fileNotWritable()"],
+                "$message$": "\"File 'testResources/file-not-writable.txt' cannot be written to\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "destParentMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.inputStream()", "FileUtilsUtils.fileParentMkdirFails()"],
+                "$message$": "\"Directory 'testResources/dirMkdirFails' could not be created\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "copyIOException",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.inputStreamIOException()", "FileUtilsUtils.file()"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "copyToFile",
+          "parameters": [
+            "java.io.InputStream",
+            "java.io.File"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "destIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.inputStream()", "FileUtilsUtils.dir()"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "destNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.inputStream()", "FileUtilsUtils.fileNotWritable()"],
+                "$message$": "\"File 'testResources/file-not-writable.txt' cannot be written to\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "destParentMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.inputStream()", "FileUtilsUtils.fileParentMkdirFails()"],
+                "$message$": "\"Directory 'testResources/dirMkdirFails' could not be created\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "srcNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(InputStream) null", "FileUtilsUtils.file()"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "destNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.inputStream()", "(File) null"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "copyIOException",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.inputStreamIOException()", "FileUtilsUtils.file()"],
+                "$message$": "\"read\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "copyToDirectory",
+          "parameters": [
+            "java.lang.Iterable",
+            "java.io.File"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "iterable_srcsNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(Iterable<File>) null", "FileUtilsUtils.dir()"],
+                "$message$": "\"Sources must not be null\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "iterable_destNull",
+                "$factory$": "FileUtils",
+                "$params$": ["Collections.singleton(FileUtilsUtils.file())", "(File) null"],
+                "$message$": "\"Destination must not be null\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "iterable_destNotDir",
+                "$factory$": "FileUtils",
+                "$params$": ["Collections.singleton(FileUtilsUtils.file())", "FileUtilsUtils.file()"],
+                "$message$": "\"Destination 'testResources/file.txt' is not a directory\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "iterable_srcsContainsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["Collections.singleton(FileUtilsUtils.dir())", "FileUtilsUtils.dir()"],
+                "$message$": "\"Source 'testResources/dir' exists but is a directory\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "iterable_srcsContainsFileNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["Collections.singleton(FileUtilsUtils.fileNonExistent())", "FileUtilsUtils.dir()"],
+                "$message$": "\"Source 'testResources/file-non-existent.txt' does not exist\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "iterable_srcsContainsFileExistsInDest",
+                "$factory$": "FileUtils",
+                "$params$": ["Collections.singleton(FileUtilsUtils.fileNotWritable())", "FileUtilsUtils.ROOT"],
+                "$message$": "\"Source 'testResources/file-not-writable.txt' and destination 'testResources/file-not-writable.txt' are the same\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "iterable_copyIOException",
+                "$factory$": "FileUtils",
+                "$params$": ["Collections.singleton(FileUtilsUtils.fileNotReadable())", "FileUtilsUtils.dir()"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "copyToDirectory",
+          "parameters": [
+            "java.io.File",
+            "java.io.File"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "srcNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.dir()"],
+                "$message$": "\"Source must not be null\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "destNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "(File) null"],
+                "$message$": "\"Destination must not be null\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "srcNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNonExistent()", "FileUtilsUtils.dir()"],
+                "$message$": "\"The source testResources/file-non-existent.txt does not exist\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "srcIsFileAndExistsInDest",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotWritable()", "FileUtilsUtils.ROOT"],
+                "$message$": "\"Source 'testResources/file-not-writable.txt' and destination 'testResources/file-not-writable.txt' are the same\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "destNotDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.file()"],
+                "$message$": "\"Destination 'testResources/file.txt' is not a directory\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "srcIsDirAndNotReadable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dirNotReadable()", "FileUtilsUtils.dir()"],
+                "$message$": "\"Failed to list contents of testResources/dirNotReadable\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "destNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.dirNotWritable()"],
+                "$message$": "\"testResources/dirNotWritable/file.txt (Permission denied)\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "deleteDirectory",
+          "parameters": [
+            "java.io.File"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "dirNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "dirNotADir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()"],
+                "$message$": "\"testResources/file.txt is not a directory\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "copyIOException",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dirNotReadable()"],
+                "$message$": "\"Failed to list contents of testResources/dirNotReadable\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "deleteQuietly",
+          "parameters": [
+            "java.io.File"
+          ],
+          "tests": []
+        },
+        {
+          "name": "directoryContains",
+          "parameters": [
+            "java.io.File",
+            "java.io.File"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "dirNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.file()"],
+                "$message$": "\"Directory must not be null\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "dirNotADir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.file()"],
+                "$message$": "\"Not a directory: testResources/file.txt\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "checkingFilesIOError",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dirIOException()", "FileUtilsUtils.file()"],
+                "$message$": "\"getCanonicalPath\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "cleanDirectory",
+          "parameters": [
+            "java.io.File"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "dirNotADir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()"],
+                "$message$": "\"testResources/file.txt is not a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "dirNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dirNonExistent()"],
+                "$message$": "\"testResources/dirNonExistent does not exist\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "dirNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "dirNotReadable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dirNotReadable()"],
+                "$message$": "\"Failed to list contents of testResources/dirNotReadable\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "dirNonDeletableFile",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dirNonDeletableFile()"],
+                "$message$": "\"Unable to delete file: testResources/dirNonDeletableFile/file-non-deletable.txt\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "verifiedListFiles",
+          "parameters": [
+            "java.io.File"
+          ],
+          "tests": []
+        },
+        {
+          "name": "waitFor",
+          "parameters": [
+            "java.io.File",
+            "int"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "1"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "readFileToString",
+          "parameters": [
+            "java.io.File"
+          ],
+          "tests": []
+        },
+        {
+          "name": "readFileToString",
+          "parameters": [
+            "java.io.File",
+            "java.nio.charset.Charset"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "charset_fileNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNonExistent()", "StandardCharsets.UTF_8"],
+                "$message$": "\"File 'testResources/file-non-existent.txt' does not exist\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "charset_fileIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "StandardCharsets.UTF_8"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "charset_fileNotReadable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotReadable()", "StandardCharsets.UTF_8"],
+                "$message$": "\"File 'testResources/file-not-readable.txt' cannot be read\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "charset_fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "StandardCharsets.UTF_8"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "readFileToString",
+          "parameters": [
+            "java.io.File",
+            "java.lang.String"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "string_fileNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNonExistent()", "FileUtilsUtils.CHARSET_VALID"],
+                "$message$": "\"File 'testResources/file-non-existent.txt' does not exist\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "string_fileIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.CHARSET_VALID"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "string_fileNotReadable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotReadable()", "FileUtilsUtils.CHARSET_VALID"],
+                "$message$": "\"File 'testResources/file-not-readable.txt' cannot be read\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "string_fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.CHARSET_VALID"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.UnsupportedCharsetException",
+                "$state$": "string_encodingUnsupported",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.CHARSET_UNSUPPORTED"],
+                "$message$": "FileUtilsUtils.CHARSET_UNSUPPORTED"
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.IllegalCharsetNameException",
+                "$state$": "string_encodingIllegal",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.CHARSET_ILLEGAL"],
+                "$message$": "FileUtilsUtils.CHARSET_ILLEGAL"
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "readFileToByteArray",
+          "parameters": [
+            "java.io.File"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "fileNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNonExistent()"],
+                "$message$": "\"File 'testResources/file-non-existent.txt' does not exist\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "fileIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "fileNotReadable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotReadable()"],
+                "$message$": "\"File 'testResources/file-not-readable.txt' cannot be read\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "readLines",
+          "parameters": [
+            "java.io.File"
+          ],
+          "tests": []
+        },
+        {
+          "name": "readLines",
+          "parameters": [
+            "java.io.File",
+            "java.lang.String"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "string_fileNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNonExistent()", "FileUtilsUtils.CHARSET_VALID"],
+                "$message$": "\"File 'testResources/file-non-existent.txt' does not exist\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "string_fileIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.CHARSET_VALID"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "string_fileNotReadable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotReadable()", "FileUtilsUtils.CHARSET_VALID"],
+                "$message$": "\"File 'testResources/file-not-readable.txt' cannot be read\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "string_fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.CHARSET_VALID"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.UnsupportedCharsetException",
+                "$state$": "string_encodingUnsupported",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.CHARSET_UNSUPPORTED"],
+                "$message$": "FileUtilsUtils.CHARSET_UNSUPPORTED"
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.IllegalCharsetNameException",
+                "$state$": "string_encodingIllegal",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.CHARSET_ILLEGAL"],
+                "$message$": "FileUtilsUtils.CHARSET_ILLEGAL"
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "readLines",
+          "parameters": [
+            "java.io.File",
+            "java.nio.charset.Charset"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "charset_fileNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNonExistent()", "StandardCharsets.UTF_8"],
+                "$message$": "\"File 'testResources/file-non-existent.txt' does not exist\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "charset_fileIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "StandardCharsets.UTF_8"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "charset_fileNotReadable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotReadable()", "StandardCharsets.UTF_8"],
+                "$message$": "\"File 'testResources/file-not-readable.txt' cannot be read\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "charset_fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "StandardCharsets.UTF_8"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "lineIterator",
+          "parameters": [
+            "java.io.File"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "fileIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "fileNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNonExistent()"],
+                "$message$": "\"File 'testResources/file-non-existent.txt' does not exist\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "fileNotReadable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotReadable()"],
+                "$message$": "\"File 'testResources/file-not-readable.txt' cannot be read\""
+          	  }
+          	}
+          ]	
+        },
+        {
+          "name": "lineIterator",
+          "parameters": [
+            "java.io.File",
+            "java.lang.String"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "encoding_fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.CHARSET_VALID"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "encoding_fileIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.CHARSET_VALID"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "encoding_fileNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNonExistent()", "FileUtilsUtils.CHARSET_VALID"],
+                "$message$": "\"File 'testResources/file-non-existent.txt' does not exist\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "encoding_fileNotReadable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotReadable()", "FileUtilsUtils.CHARSET_VALID"],
+                "$message$": "\"File 'testResources/file-not-readable.txt' cannot be read\""
+          	  }
+          	}
+          ]	
+        },
+        {
+          "name": "writeStringToFile",
+          "parameters": [
+            "java.io.File",
+            "java.lang.String",
+            "java.nio.charset.Charset",
+            "boolean"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "charsetAndAppend_fileIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "\"test\"", "StandardCharsets.UTF_8", "true"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "charsetAndAppend_fileNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotWritable()", "\"test\"", "StandardCharsets.UTF_8", "true"],
+                "$message$": "\"File 'testResources/file-not-writable.txt' cannot be written to\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "charsetAndAppend_parentMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileParentMkdirFails()", "\"test\"", "StandardCharsets.UTF_8", "true"],
+                "$message$": "\"Directory 'testResources/dirMkdirFails' could not be created\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "charsetAndAppend_fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "\"test\"", "StandardCharsets.UTF_8", "true"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "writeStringToFile",
+          "parameters": [
+            "java.io.File",
+            "java.lang.String",
+            "java.lang.String",
+            "boolean"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "stringAndAppend_fileIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "\"test\"", "FileUtilsUtils.CHARSET_VALID", "true"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "stringAndAppend_fileNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotWritable()", "\"test\"", "FileUtilsUtils.CHARSET_VALID", "true"],
+                "$message$": "\"File 'testResources/file-not-writable.txt' cannot be written to\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "stringAndAppend_parentMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileParentMkdirFails()", "\"test\"", "FileUtilsUtils.CHARSET_VALID", "true"],
+                "$message$": "\"Directory 'testResources/dirMkdirFails' could not be created\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "stringAndAppend_fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "\"test\"", "FileUtilsUtils.CHARSET_VALID", "true"]
+          	  }
+          	},
+          	          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.UnsupportedCharsetException",
+                "$state$": "stringAndAppend_encodingUnsupported",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "\"test\"", "FileUtilsUtils.CHARSET_UNSUPPORTED", "true"],
+                "$message$": "FileUtilsUtils.CHARSET_UNSUPPORTED"
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.IllegalCharsetNameException",
+                "$state$": "stringAndAppend_encodingIllegal",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "\"test\"", "FileUtilsUtils.CHARSET_ILLEGAL", "true"],
+                "$message$": "FileUtilsUtils.CHARSET_ILLEGAL"
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "writeStringToFile",
+          "parameters": [
+            "java.io.File",
+            "java.lang.String"
+          ],
+          "tests": []
+        },
+        {
+          "name": "writeStringToFile",
+          "parameters": [
+            "java.io.File",
+            "java.lang.String",
+            "boolean"
+          ],
+          "tests": []
+        },
+        {
+          "name": "writeStringToFile",
+          "parameters": [
+            "java.io.File",
+            "java.lang.String",
+            "java.lang.String"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "string_fileIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "\"test\"", "FileUtilsUtils.CHARSET_VALID"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "string_fileNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotWritable()", "\"test\"", "FileUtilsUtils.CHARSET_VALID"],
+                "$message$": "\"File 'testResources/file-not-writable.txt' cannot be written to\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "string_parentMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileParentMkdirFails()", "\"test\"", "FileUtilsUtils.CHARSET_VALID"],
+                "$message$": "\"Directory 'testResources/dirMkdirFails' could not be created\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "string_fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "\"test\"", "FileUtilsUtils.CHARSET_VALID"]
+          	  }
+          	},
+          	          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.UnsupportedCharsetException",
+                "$state$": "string_encodingUnsupported",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "\"test\"", "FileUtilsUtils.CHARSET_UNSUPPORTED"],
+                "$message$": "FileUtilsUtils.CHARSET_UNSUPPORTED"
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.IllegalCharsetNameException",
+                "$state$": "string_encodingIllegal",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "\"test\"", "FileUtilsUtils.CHARSET_ILLEGAL"],
+                "$message$": "FileUtilsUtils.CHARSET_ILLEGAL"
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "writeStringToFile",
+          "parameters": [
+            "java.io.File",
+            "java.lang.String",
+            "java.nio.charset.Charset"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "charset_fileIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "\"test\"", "StandardCharsets.UTF_8"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "charset_fileNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotWritable()", "\"test\"", "StandardCharsets.UTF_8"],
+                "$message$": "\"File 'testResources/file-not-writable.txt' cannot be written to\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "charset_parentMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileParentMkdirFails()", "\"test\"", "StandardCharsets.UTF_8"],
+                "$message$": "\"Directory 'testResources/dirMkdirFails' could not be created\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "charset_fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "\"test\"", "StandardCharsets.UTF_8"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "writeByteArrayToFile",
+          "parameters": [
+            "java.io.File",
+            "byte[]",
+            "int",
+            "int",
+            "boolean"
+          ],
+          "tests": [      
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "offsetAndAppend_fileIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "new byte[10]", "0", "5", "true"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "offsetAndAppend_fileNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotWritable()", "new byte[10]", "0", "5", "true"],
+                "$message$": "\"File 'testResources/file-not-writable.txt' cannot be written to\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "offsetAndAppend_parentMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileParentMkdirFails()", "new byte[10]", "0", "5", "true"],
+                "$message$": "\"Directory 'testResources/dirMkdirFails' could not be created\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "offsetAndAppend_fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "new byte[10]", "0", "5", "true"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "offsetAndAppend_dataNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "(byte[]) null", "0", "5", "true"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "offsetAndAppend_offNegative",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "(byte[]) null", "-1", "5", "true"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "offsetAndAppend_lenNegative",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "(byte[]) null", "0", "-1", "true"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "offsetAndAppend_offAndLenInvalid",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "(byte[]) null", "9", "2", "true"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "writeByteArrayToFile",
+          "parameters": [
+            "java.io.File",
+            "byte[]"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "fileIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "new byte[10]"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "fileNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotWritable()", "new byte[10]"],
+                "$message$": "\"File 'testResources/file-not-writable.txt' cannot be written to\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "parentMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileParentMkdirFails()", "new byte[10]"],
+                "$message$": "\"Directory 'testResources/dirMkdirFails' could not be created\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "new byte[10]"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "dataNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "(byte[]) null"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "writeByteArrayToFile",
+          "parameters": [
+            "java.io.File",
+            "byte[]",
+            "boolean"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "append_fileIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "new byte[10]", "true"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "append_fileNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotWritable()", "new byte[10]", "true"],
+                "$message$": "\"File 'testResources/file-not-writable.txt' cannot be written to\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "append_parentMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileParentMkdirFails()", "new byte[10]", "true"],
+                "$message$": "\"Directory 'testResources/dirMkdirFails' could not be created\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "append_fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "new byte[10]", "true"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "append_dataNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "(byte[]) null", "true"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "writeByteArrayToFile",
+          "parameters": [
+            "java.io.File",
+            "byte[]",
+            "int",
+            "int"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "offset_fileIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "new byte[10]", "0", "5"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "offset_fileNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotWritable()", "new byte[10]", "0", "5"],
+                "$message$": "\"File 'testResources/file-not-writable.txt' cannot be written to\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "offset_parentMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileParentMkdirFails()", "new byte[10]", "0", "5"],
+                "$message$": "\"Directory 'testResources/dirMkdirFails' could not be created\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "offset_fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "new byte[10]", "0", "5"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "offset_dataNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "(byte[]) null", "0", "5"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "offset_offNegative",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "(byte[]) null", "-1", "5"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "offset_lenNegative",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "(byte[]) null", "0", "-1"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "offset_offAndLenInvalid",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "(byte[]) null", "9", "2"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "writeLines",
+          "parameters": [
+            "java.io.File",
+            "java.lang.String",
+            "java.util.Collection",
+            "java.lang.String",
+            "boolean"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "encodingLineEndingAndAppend_fileIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.CHARSET_VALID", "FileUtilsUtils.LINES", "\"*\"", "true"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "encodingLineEndingAndAppend_fileNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotWritable()", "FileUtilsUtils.CHARSET_VALID", "FileUtilsUtils.LINES", "\"*\"", "true"],
+                "$message$": "\"File 'testResources/file-not-writable.txt' cannot be written to\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "encodingLineEndingAndAppend_parentMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileParentMkdirFails()", "FileUtilsUtils.CHARSET_VALID", "FileUtilsUtils.LINES", "\"*\"", "true"],
+                "$message$": "\"Directory 'testResources/dirMkdirFails' could not be created\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "encodingLineEndingAndAppend_fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.CHARSET_VALID", "FileUtilsUtils.LINES", "\"*\"", "true"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.UnsupportedCharsetException",
+                "$state$": "encodingLineEndingAndAppend_encodingUnsupported",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.CHARSET_UNSUPPORTED", "FileUtilsUtils.LINES", "\"*\"", "true"],
+                "$message$": "FileUtilsUtils.CHARSET_UNSUPPORTED"
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.IllegalCharsetNameException",
+                "$state$": "encodingLineEndingAndAppend_encodingIllegal",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.CHARSET_ILLEGAL", "FileUtilsUtils.LINES", "\"*\"", "true"],
+                "$message$": "FileUtilsUtils.CHARSET_ILLEGAL"
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "writeLines",
+          "parameters": [
+            "java.io.File",
+            "java.util.Collection",
+            "java.lang.String"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "lineEnding_fileIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.LINES", "\"*\""],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "lineEnding_fileNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotWritable()", "FileUtilsUtils.LINES", "\"*\""],
+                "$message$": "\"File 'testResources/file-not-writable.txt' cannot be written to\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "lineEnding_parentMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileParentMkdirFails()", "FileUtilsUtils.LINES", "\"*\""],
+                "$message$": "\"Directory 'testResources/dirMkdirFails' could not be created\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "lineEnding_fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.LINES", "\"*\""]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "writeLines",
+          "parameters": [
+            "java.io.File",
+            "java.util.Collection",
+            "java.lang.String",
+            "boolean"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "lineEndingAndAppend_fileIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.LINES", "\"*\"", "true"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "lineEndingAndAppend_fileNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotWritable()", "FileUtilsUtils.LINES", "\"*\"", "true"],
+                "$message$": "\"File 'testResources/file-not-writable.txt' cannot be written to\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "lineEndingAndAppend_parentMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileParentMkdirFails()", "FileUtilsUtils.LINES", "\"*\"", "true"],
+                "$message$": "\"Directory 'testResources/dirMkdirFails' could not be created\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "lineEndingAndAppend_fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.LINES", "\"*\"", "true"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "writeLines",
+          "parameters": [
+            "java.io.File",
+            "java.lang.String",
+            "java.util.Collection"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "encoding_fileIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.CHARSET_VALID", "FileUtilsUtils.LINES"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "encoding_fileNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotWritable()", "FileUtilsUtils.CHARSET_VALID", "FileUtilsUtils.LINES"],
+                "$message$": "\"File 'testResources/file-not-writable.txt' cannot be written to\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "encoding_parentMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileParentMkdirFails()", "FileUtilsUtils.CHARSET_VALID", "FileUtilsUtils.LINES"],
+                "$message$": "\"Directory 'testResources/dirMkdirFails' could not be created\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "encoding_fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.CHARSET_VALID", "FileUtilsUtils.LINES"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.UnsupportedCharsetException",
+                "$state$": "encoding_encodingUnsupported",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.CHARSET_UNSUPPORTED", "FileUtilsUtils.LINES"],
+                "$message$": "FileUtilsUtils.CHARSET_UNSUPPORTED"
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.IllegalCharsetNameException",
+                "$state$": "encoding_encodingIllegal",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.CHARSET_ILLEGAL", "FileUtilsUtils.LINES"],
+                "$message$": "FileUtilsUtils.CHARSET_ILLEGAL"
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "writeLines",
+          "parameters": [
+            "java.io.File",
+            "java.lang.String",
+            "java.util.Collection",
+            "boolean"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "encodingAndAppend_fileIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.CHARSET_VALID", "FileUtilsUtils.LINES", "true"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "encodingAndAppend_fileNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotWritable()", "FileUtilsUtils.CHARSET_VALID", "FileUtilsUtils.LINES", "true"],
+                "$message$": "\"File 'testResources/file-not-writable.txt' cannot be written to\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "encodingAndAppend_parentMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileParentMkdirFails()", "FileUtilsUtils.CHARSET_VALID", "FileUtilsUtils.LINES", "true"],
+                "$message$": "\"Directory 'testResources/dirMkdirFails' could not be created\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "encodingAndAppend_fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.CHARSET_VALID", "FileUtilsUtils.LINES", "true"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.UnsupportedCharsetException",
+                "$state$": "encodingAndAppend_encodingUnsupported",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.CHARSET_UNSUPPORTED", "FileUtilsUtils.LINES", "true"],
+                "$message$": "FileUtilsUtils.CHARSET_UNSUPPORTED"
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.IllegalCharsetNameException",
+                "$state$": "encodingAndAppend_encodingIllegal",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.CHARSET_ILLEGAL", "FileUtilsUtils.LINES", "true"],
+                "$message$": "FileUtilsUtils.CHARSET_ILLEGAL"
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "writeLines",
+          "parameters": [
+            "java.io.File",
+            "java.util.Collection"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "fileIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.LINES"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "fileNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotWritable()", "FileUtilsUtils.LINES"],
+                "$message$": "\"File 'testResources/file-not-writable.txt' cannot be written to\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "parentMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileParentMkdirFails()", "FileUtilsUtils.LINES"],
+                "$message$": "\"Directory 'testResources/dirMkdirFails' could not be created\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.LINES"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "writeLines",
+          "parameters": [
+            "java.io.File",
+            "java.lang.String",
+            "java.util.Collection",
+            "java.lang.String"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "encodingAndLineEnding_fileIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.CHARSET_VALID", "FileUtilsUtils.LINES", "\"*\""],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "encodingAndLineEnding_fileNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotWritable()", "FileUtilsUtils.CHARSET_VALID", "FileUtilsUtils.LINES", "\"*\""],
+                "$message$": "\"File 'testResources/file-not-writable.txt' cannot be written to\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "encodingAndLineEnding_parentMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileParentMkdirFails()", "FileUtilsUtils.CHARSET_VALID", "FileUtilsUtils.LINES", "\"*\""],
+                "$message$": "\"Directory 'testResources/dirMkdirFails' could not be created\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "encodingAndLineEnding_fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.CHARSET_VALID", "FileUtilsUtils.LINES", "\"*\""]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.UnsupportedCharsetException",
+                "$state$": "encodingAndLineEnding_encodingUnsupported",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.CHARSET_UNSUPPORTED", "FileUtilsUtils.LINES", "\"*\""],
+                "$message$": "FileUtilsUtils.CHARSET_UNSUPPORTED"
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.IllegalCharsetNameException",
+                "$state$": "encodingAndLineEnding_encodingIllegal",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.CHARSET_ILLEGAL", "FileUtilsUtils.LINES", "\"*\""],
+                "$message$": "FileUtilsUtils.CHARSET_ILLEGAL"
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "writeLines",
+          "parameters": [
+            "java.io.File",
+            "java.util.Collection",
+            "boolean"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "append_fileIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.LINES", "true"],
+                "$message$": "\"File 'testResources/dir' exists but is a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "append_fileNotWritable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotWritable()", "FileUtilsUtils.LINES", "true"],
+                "$message$": "\"File 'testResources/file-not-writable.txt' cannot be written to\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "append_parentMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileParentMkdirFails()", "FileUtilsUtils.LINES", "true"],
+                "$message$": "\"Directory 'testResources/dirMkdirFails' could not be created\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "append_fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.LINES", "true"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "forceDelete",
+          "parameters": [
+            "java.io.File"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.FileNotFoundException",
+                "$state$": "fileNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNonExistent()"],
+                "$message$": "\"File does not exist: testResources/file-non-existent.txt\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "forceDeleteOnExit",
+          "parameters": [
+            "java.io.File"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null"]
+          	  }
+          	}
+         ]
+        },
+        {
+          "name": "deleteDirectoryOnExit",
+          "parameters": [
+            "java.io.File"
+          ],
+          "tests": []
+        },
+        {
+          "name": "cleanDirectoryOnExit",
+          "parameters": [
+            "java.io.File"
+          ],
+          "tests": []
+        },
+        {
+          "name": "forceMkdir",
+          "parameters": [
+            "java.io.File"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "dirNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "dirExistsAndNotADir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()"],
+                "$message$": "\"File testResources/file.txt exists and is not a directory. Unable to create directory.\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "dirMkdirFail",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileMkdirFails()"],
+                "$message$": "\"Unable to create directory testResources/dirMkdirFails\""
+          	  }
+          	}
+         ]
+        },
+        {
+          "name": "forceMkdirParent",
+          "parameters": [
+            "java.io.File"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "fileParentMkdirFails",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileParentMkdirFails()"],
+                "$message$": "\"Directory 'testResources/dirMkdirFails' could not be created\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "sizeOf",
+          "parameters": [
+            "java.io.File"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "fileNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNonExistent()"],
+                "$message$": "\"testResources/file-non-existent.txt does not exist\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "sizeOfAsBigInteger",
+          "parameters": [
+            "java.io.File"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "fileNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNonExistent()"],
+                "$message$": "\"testResources/file-non-existent.txt does not exist\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "sizeOfDirectory",
+          "parameters": [
+            "java.io.File"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "dirNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dirNonExistent()"],
+                "$message$": "\"testResources/dirNonExistent does not exist\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "dirNotADir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()"],
+                "$message$": "\"testResources/file.txt is not a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "dirNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "sizeOfDirectory0",
+          "parameters": [
+            "java.io.File"
+          ],
+          "tests": []
+        },
+        {
+          "name": "sizeOf0",
+          "parameters": [
+            "java.io.File"
+          ],
+          "tests": []
+        },
+        {
+          "name": "sizeOfDirectoryAsBigInteger",
+          "parameters": [
+            "java.io.File"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "dirNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dirNonExistent()"],
+                "$message$": "\"testResources/dirNonExistent does not exist\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "dirNotADir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()"],
+                "$message$": "\"testResources/file.txt is not a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "dirNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "sizeOfDirectoryBig0",
+          "parameters": [
+            "java.io.File"
+          ],
+          "tests": []
+        },
+        {
+          "name": "sizeOfBig0",
+          "parameters": [
+            "java.io.File"
+          ],
+          "tests": []
+        },
+        {
+          "name": "checkDirectory",
+          "parameters": [
+            "java.io.File"
+          ],
+          "tests": []
+        },
+        {
+          "name": "isFileNewer",
+          "parameters": [
+            "java.io.File",
+            "java.io.File"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "file_referenceNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "(File) null"],
+                "$message$": "\"No specified reference file\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "file_referenceNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.fileNonExistent()"],
+                "$message$": "\"The reference file 'testResources/file-non-existent.txt' doesn't exist\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "file_fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.file()"],
+                "$message$": "\"No specified file\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "isFileNewer",
+          "parameters": [
+            "java.io.File",
+            "long"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "long_fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "System.currentTimeMillis()"],
+                "$message$": "\"No specified file\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "isFileNewer",
+          "parameters": [
+            "java.io.File",
+            "java.util.Date"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "date_dateNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "(Date) null"],
+                "$message$": "\"No specified date\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "date_fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "new Date()"],
+                "$message$": "\"No specified file\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "isFileOlder",
+          "parameters": [
+            "java.io.File",
+            "java.io.File"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "file_referenceNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "(File) null"],
+                "$message$": "\"No specified reference file\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "file_referenceNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.fileNonExistent()"],
+                "$message$": "\"The reference file 'testResources/file-non-existent.txt' doesn't exist\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "file_fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.file()"],
+                "$message$": "\"No specified file\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "isFileOlder",
+          "parameters": [
+            "java.io.File",
+            "java.util.Date"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "date_dateNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "(Date) null"],
+                "$message$": "\"No specified date\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "date_fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "new Date()"],
+                "$message$": "\"No specified file\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "isFileOlder",
+          "parameters": [
+            "java.io.File",
+            "long"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "long_fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "System.currentTimeMillis()"],
+                "$message$": "\"No specified file\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "checksumCRC32",
+          "parameters": [
+            "java.io.File"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "fileDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()"],
+                "$message$": "\"Checksums can't be computed on directories\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "fileNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNonExistent()"],
+                "$message$": "\"testResources/file-non-existent.txt (No such file or directory)\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "fileNotReadable",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNotReadable()"],
+                "$message$": "\"testResources/file-not-readable.txt (Permission denied)\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "moveDirectory",
+          "parameters": [
+            "java.io.File",
+            "java.io.File"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "srcNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.dir()"],
+                "$message$": "\"Source must not be null\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "destNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "(File) null"],
+                "$message$": "\"Destination must not be null\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "org.apache.commons.io.FileExistsException",
+                "$state$": "destExists",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.dir()"],
+                "$message$": "\"Destination 'testResources/dir' already exists\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "srcNotADir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.dir()"],
+                "$message$": "\"Source 'testResources/file.txt' is not a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "srcNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dirNonExistent()", "FileUtilsUtils.dir()"],
+                "$message$": "\"Source 'testResources/dirNonExistent' does not exist\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "destIsSubDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.subDirNonExistent()"],
+                "$message$": "\"Cannot move directory: testResources/dir to a subdirectory of itself: testResources/dir/subDirNonExistent\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "moveDirectoryToDirectory",
+          "parameters": [
+            "java.io.File",
+            "java.io.File",
+            "boolean"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "srcNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.dir()", "false"],
+                "$message$": "\"Source must not be null\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "destNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "(File) null", "false"],
+                "$message$": "\"Destination directory must not be null\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "srcNotADir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.dir()", "false"],
+                "$message$": "\"Source 'testResources/file.txt' is not a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "srcNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dirNonExistent()", "FileUtilsUtils.dir()", "false"],
+                "$message$": "\"Source 'testResources/dirNonExistent' does not exist\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "destNotADir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.file()", "false"],
+                "$message$": "\"Destination 'testResources/file.txt' is not a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "destNonExistentAndCreateDestFalse",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.dirNonExistent()", "false"],
+                "$message$": "\"Destination directory 'testResources/dirNonExistent' does not exist [createDestDir=false]\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "destIsSubDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.subDirNonExistent()", "true"],
+                "$message$": "\"Cannot move directory: testResources/dir to a subdirectory of itself: testResources/dir/subDirNonExistent/dir\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "org.apache.commons.io.FileExistsException",
+                "$state$": "srcExistsInDest",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.ROOT", "false"],
+                "$message$": "\"Destination 'testResources/dir' already exists\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "moveFile",
+          "parameters": [
+            "java.io.File",
+            "java.io.File"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "srcNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.file()"],
+                "$message$": "\"Source must not be null\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "destNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "(File) null"],
+                "$message$": "\"Destination must not be null\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "srcNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNonExistent()", "FileUtilsUtils.file()"],
+                "$message$": "\"Source 'testResources/file-non-existent.txt' does not exist\""
+              }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "srcIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.file()"],
+                "$message$": "\"Source 'testResources/dir' is a directory\""
+              }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "org.apache.commons.io.FileExistsException",
+                "$state$": "destExists",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.file()"],
+                "$message$": "\"Destination 'testResources/file.txt' already exists\""
+              }
+          	}
+          ]
+        },
+        {
+          "name": "moveFileToDirectory",
+          "parameters": [
+            "java.io.File",
+            "java.io.File",
+            "boolean"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "srcNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.dir()", "false"],
+                "$message$": "\"Source must not be null\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "destNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "(File) null", "false"],
+                "$message$": "\"Destination directory must not be null\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "srcNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNonExistent()", "FileUtilsUtils.dir()", "false"],
+                "$message$": "\"Source 'testResources/file-non-existent.txt' does not exist\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "destNonExistentAndCreateDestFalse",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.dirNonExistent()", "false"],
+                "$message$": "\"Destination directory 'testResources/dirNonExistent' does not exist [createDestDir=false]\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "destNotADir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.file()", "false"],
+                "$message$": "\"Destination 'testResources/file.txt' is not a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "srcIsDir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.dir()", "FileUtilsUtils.dir()", "false"],
+                "$message$": "\"Source 'testResources/dir' is a directory\""
+              }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "org.apache.commons.io.FileExistsException",
+                "$state$": "srcExistsInDest",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "new File(FileUtilsUtils.BASE)", "false"],
+                "$message$": "\"Destination 'testResources/file.txt' already exists\""
+              }
+          	}
+          ]
+        },
+        {
+          "name": "moveToDirectory",
+          "parameters": [
+            "java.io.File",
+            "java.io.File",
+            "boolean"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "srcNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null", "FileUtilsUtils.dir()", "false"],
+                "$message$": "\"Source must not be null\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "destNull",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "(File) null", "false"],
+                "$message$": "\"Destination must not be null\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "srcNonExistent",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.fileNonExistent()", "FileUtilsUtils.dir()", "false"],
+                "$message$": "\"Source 'testResources/file-non-existent.txt' does not exist\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "destNotADir",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.file()", "false"],
+                "$message$": "\"Destination 'testResources/file.txt' is not a directory\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "destNonExistentAndCreateDestFalse",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "FileUtilsUtils.dirNonExistent()", "false"],
+                "$message$": "\"Destination directory 'testResources/dirNonExistent' does not exist [createDestDir=false]\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "org.apache.commons.io.FileExistsException",
+                "$state$": "srcExistsInDest",
+                "$factory$": "FileUtils",
+                "$params$": ["FileUtilsUtils.file()", "new File(FileUtilsUtils.BASE)", "false"],
+                "$message$": "\"Destination 'testResources/file.txt' already exists\""
+              }
+          	}
+          ]
+        },
+        {
+          "name": "isSymlink",
+          "parameters": [
+            "java.io.File"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "fileNull",
+                "$factory$": "FileUtils",
+                "$params$": ["(File) null"],
+                "$message$": "\"File must not be null\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "FileUtils",
+          "parameters": [],
+          "tests": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "classes": [
+    {
+      "fullname": "org.apache.commons.io.ByteOrderParser",
+      "methods": [
+        {
+          "name": "parseByteOrder",
+          "parameters": [
+            "java.lang.String"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "unknownByteOrder",
+                $factory$: "ByteOrderParser",
+                "$params$": ["\"unknownByteOrder\""],
+                "$message$": "\"Unsupported byte order setting: unknownByteOrder, expeced one of \" + java.nio.ByteOrder.LITTLE_ENDIAN + \", \" + java.nio.ByteOrder.BIG_ENDIAN"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ByteOrderParser",
+          "parameters": [],
+          "tests": []
+        }
+      ]
+    }
+  ]
+}

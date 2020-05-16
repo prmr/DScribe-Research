@@ -1,0 +1,3972 @@
+{
+  "classes": [
+    {
+      "fullname": "org.apache.commons.io.IOUtils",
+      "methods": [
+        {
+          "name": "toString",
+          "parameters": [
+            "java.io.InputStream",
+            "java.lang.String"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamWithString_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "IOUtilsUtils.CHARSET_VALID"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStreamWithString_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStreamIOException()", "IOUtilsUtils.CHARSET_VALID"],
+                "$message$": "\"read\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.UnsupportedCharsetException",
+                "$state$": "inputStreamWithString_encodingUnsupported",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "IOUtilsUtils.CHARSET_UNSUPPORTED"],
+                "$message$": "IOUtilsUtils.CHARSET_UNSUPPORTED"
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.IllegalCharsetNameException",
+                "$state$": "inputStreamWithString_encodingIllegal",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "IOUtilsUtils.CHARSET_ILLEGAL"],
+                "$message$": "IOUtilsUtils.CHARSET_ILLEGAL"
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "toString",
+          "parameters": [
+            "java.io.InputStream",
+            "java.nio.charset.Charset"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamWithCharset_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "StandardCharsets.UTF_8"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStreamWithCharset_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStreamIOException()", "StandardCharsets.UTF_8"],
+                "$message$": "\"read\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "toString",
+          "parameters": [
+            "java.io.InputStream"
+          ],
+          "tests": []
+        },
+        {
+          "name": "toString",
+          "parameters": [
+            "byte[]"
+          ],
+          "tests": []
+        },
+        {
+          "name": "toString",
+          "parameters": [
+            "byte[]",
+            "java.lang.String"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "bytes_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(byte[]) null", "IOUtilsUtils.CHARSET_VALID"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.UnsupportedCharsetException",
+                "$state$": "bytes_encodingUnsupported",
+                "$factory$": "IOUtils",
+                "$params$": ["new byte[10]", "IOUtilsUtils.CHARSET_UNSUPPORTED"],
+                "$message$": "IOUtilsUtils.CHARSET_UNSUPPORTED"
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.IllegalCharsetNameException",
+                "$state$": "bytes_encodingIllegal",
+                "$factory$": "IOUtils",
+                "$params$": ["new byte[10]", "IOUtilsUtils.CHARSET_ILLEGAL"],
+                "$message$": "IOUtilsUtils.CHARSET_ILLEGAL"
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "toString",
+          "parameters": [
+            "java.net.URL",
+            "java.nio.charset.Charset"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "URLWithCharset_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(URL) null", "StandardCharsets.UTF_8"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "toString",
+          "parameters": [
+            "java.net.URL"
+          ],
+          "tests": []
+        },
+        {
+          "name": "toString",
+          "parameters": [
+            "java.net.URI",
+            "java.lang.String"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "URIWithString_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(URI) null", "IOUtilsUtils.CHARSET_VALID"]
+          	  }
+          	},
+          	{
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.IllegalCharsetNameException",
+                "$factory$": "IOUtils",
+                "$state$": "URIWithString_encodingIllegal",
+                "$params$": ["new URI(\"https://www.google.com\")", "IOUtilsUtils.CHARSET_ILLEGAL"],
+                "$message$": "IOUtilsUtils.CHARSET_ILLEGAL"
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.UnsupportedCharsetException",
+                "$factory$": "IOUtils",
+                "$state$": "URIWithString_encodingUnsupported",
+                "$params$": ["new URI(\"https://www.google.com\")", "IOUtilsUtils.CHARSET_UNSUPPORTED"],
+                "$message$": "IOUtilsUtils.CHARSET_UNSUPPORTED"
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "URIWithString_uriNotAbsolute",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.uriNotAbsolute()", "IOUtilsUtils.CHARSET_VALID"],
+                "$message$": "\"URI is not absolute\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.net.MalformedURLException",
+                "$state$": "URIWithString_uriProtocolUnknown",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.uriUknownProtocol()", "IOUtilsUtils.CHARSET_VALID"],
+                "$message$": "\"unknown protocol: htts\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "toString",
+          "parameters": [
+            "java.net.URI",
+            "java.nio.charset.Charset"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "URIWithCharset_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(URI) null", "StandardCharsets.UTF_8"]
+          	  }
+          	},
+          	{
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "URIWithCharset_uriNotAbsolute",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.uriNotAbsolute()", "StandardCharsets.UTF_8"],
+                "$message$": "\"URI is not absolute\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.net.MalformedURLException",
+                "$state$": "URIWithCharset_uriProtocolUnknown",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.uriUknownProtocol()", "StandardCharsets.UTF_8"],
+                "$message$": "\"unknown protocol: htts\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "toString",
+          "parameters": [
+            "java.net.URL",
+            "java.lang.String"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "URLWithString_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(URL) null", "IOUtilsUtils.CHARSET_VALID"]
+          	  }
+          	},
+          	{
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.IllegalCharsetNameException",
+                "$factory$": "IOUtils",
+                "$state$": "URLWithString_encodingIllegal",
+                "$params$": ["new URL(\"https://www.google.com\")", "IOUtilsUtils.CHARSET_ILLEGAL"],
+                "$message$": "IOUtilsUtils.CHARSET_ILLEGAL"
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.UnsupportedCharsetException",
+                "$factory$": "IOUtils",
+                "$state$": "URLWithString_encodingUnsupported",
+                "$params$": ["new URL(\"https://www.google.com\")", "IOUtilsUtils.CHARSET_UNSUPPORTED"],
+                "$message$": "IOUtilsUtils.CHARSET_UNSUPPORTED"
+              }
+            }
+          ] 
+        },
+        {
+          "name": "toString",
+          "parameters": [
+            "java.io.Reader"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "reader_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(Reader) null"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "reader_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readerIOException()"],
+                "$message$": "\"read\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "toString",
+          "parameters": [
+            "java.net.URI"
+          ],
+          "tests": []
+        },
+        {
+          "name": "contentEquals",
+          "parameters": [
+            "java.io.Reader",
+            "java.io.Reader"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readers_input1Null",
+                "$factory$": "IOUtils",
+                "$params$": ["(Reader) null", "IOUtilsUtils.charArrayReader()"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readers_input2Null",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.charArrayReader()", "(Reader) null"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "readers_input1ReadIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readerIOException()", "IOUtilsUtils.charArrayReader()"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "readers_input2ReadIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.charArrayReader()", "IOUtilsUtils.readerIOException()"],
+                "$message$": "\"read\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "contentEquals",
+          "parameters": [
+            "java.io.InputStream",
+            "java.io.InputStream"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStreams_input1Null",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "IOUtilsUtils.byteArrayInputStream()"],
+                "$message$": "\"Stream closed\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStreams_input2Null",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.byteArrayInputStream()", "(InputStream) null"],
+                "$message$": "\"Stream closed\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStreams_input1ReadIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStreamIOException()", "IOUtilsUtils.byteArrayInputStream()"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStreams_input2ReadIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.byteArrayInputStream()", "IOUtilsUtils.inputStreamIOException()"],
+                "$message$": "\"read\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "toCharArray",
+          "parameters": [
+            "java.io.Reader"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "reader_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(Reader) null"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "reader_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readerIOException()"],
+              	"$message$": "\"read\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "toCharArray",
+          "parameters": [
+            "java.io.InputStream",
+            "java.lang.String"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamWithString_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "IOUtilsUtils.CHARSET_VALID"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStreamWithString_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStreamIOException()", "IOUtilsUtils.CHARSET_VALID"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.IllegalCharsetNameException",
+                "$factory$": "IOUtils",
+                "$state$": "inputStreamWithString_encodingIllegal",
+                "$params$": ["IOUtilsUtils.inputStream()", "IOUtilsUtils.CHARSET_ILLEGAL"],
+                "$message$": "IOUtilsUtils.CHARSET_ILLEGAL"
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.UnsupportedCharsetException",
+                "$factory$": "IOUtils",
+                "$state$": "inputStreamWithString_encodingUnsupported",
+                "$params$": ["IOUtilsUtils.inputStream()", "IOUtilsUtils.CHARSET_UNSUPPORTED"],
+                "$message$": "IOUtilsUtils.CHARSET_UNSUPPORTED"
+              }
+            }
+          ]
+        },
+        {
+          "name": "toCharArray",
+          "parameters": [
+            "java.io.InputStream",
+            "java.nio.charset.Charset"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamWithCharset_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "StandardCharsets.UTF_8"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStreamWithCharset_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStreamIOException()", "StandardCharsets.UTF_8"],
+              	"$message$": "\"read\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "toCharArray",
+          "parameters": [
+            "java.io.InputStream"
+          ],
+          "tests": []
+        },
+        {
+          "name": "buffer",
+          "parameters": [
+            "java.io.Writer",
+            "int"
+          ],
+          "tests":  [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "writerWithSize_writerNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(Writer) null", "1"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "writerWithSize_sizeNegative",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.writer()", "-1"],
+                "$message$": "\"Buffer size <= 0\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "buffer",
+          "parameters": [
+            "java.io.Writer"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "writer_writerNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(Writer) null"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "buffer",
+          "parameters": [
+            "java.io.Reader"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "reader_readerNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(Reader) null"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "buffer",
+          "parameters": [
+            "java.io.Reader",
+            "int"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readerWithSize_readerNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(Reader) null", "1"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "readerWithSize_sizeNegative",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.reader()", "-1"],
+                "$message$": "\"Buffer size <= 0\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "buffer",
+          "parameters": [
+            "java.io.OutputStream",
+            "int"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "outputStreamWithSize_outputStreamNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(OutputStream) null", "1"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "outputStreamWithSize_sizeNegative",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.outputStream()", "-1"],
+                "$message$": "\"Buffer size <= 0\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "buffer",
+          "parameters": [
+            "java.io.InputStream"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStream_inputStreamNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "buffer",
+          "parameters": [
+            "java.io.OutputStream"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "outputStream_outputStreamNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(OutputStream) null"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "buffer",
+          "parameters": [
+            "java.io.InputStream",
+            "int"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamWithSize_inputStreamNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "1"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "inputStreamWithSize_sizeNegative",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "-1"],
+                "$message$": "\"Buffer size <= 0\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "write",
+          "parameters": [
+            "char[]",
+            "java.io.Writer"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "charArrayToWriter_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["new char[10]", "(Writer) null"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "charArrayToWriter_writeIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["new char[10]", "IOUtilsUtils.writerIOException()"],
+                "$message$": "\"write\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "write",
+          "parameters": [
+            "java.lang.CharSequence",
+            "java.io.OutputStream"
+          ],
+          "tests": []
+        },
+        {
+          "name": "write",
+          "parameters": [
+            "java.lang.String",
+            "java.io.OutputStream",
+            "java.nio.charset.Charset"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "stringToOutputStreamWithCharset_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["\"test\"", "(OutputStream) null", "StandardCharsets.UTF_8"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "stringToOutputStreamWithCharset_writeIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["\"test\"", "IOUtilsUtils.outputStreamIOException()", "StandardCharsets.UTF_8"],
+                "$message$": "\"write\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "write",
+          "parameters": [
+            "java.lang.CharSequence",
+            "java.io.Writer"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "charSeqToWriter_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.CHAR_SEQ", "(Writer) null"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "charSeqToWriter_writeIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.CHAR_SEQ", "IOUtilsUtils.writerIOException()"],
+                "$message$": "\"write\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "write",
+          "parameters": [
+            "char[]",
+            "java.io.OutputStream",
+            "java.lang.String"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "charArrayToOutputStreamWithString_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["new char[10]", "(OutputStream) null", "IOUtilsUtils.CHARSET_VALID"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "charArrayToOutputStreamWithString_writeIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["new char[10]", "IOUtilsUtils.outputStreamIOException()", "IOUtilsUtils.CHARSET_VALID"],
+                "$message$": "\"write\""
+          	  }
+          	},
+          	{
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.IllegalCharsetNameException",
+                "$factory$": "IOUtils",
+                "$state$": "charArrayToOutputStreamWithString_encodingIllegal",
+                "$params$": ["new char[10]", "IOUtilsUtils.outputStream()", "IOUtilsUtils.CHARSET_ILLEGAL"],
+                "$message$": "IOUtilsUtils.CHARSET_ILLEGAL"
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.UnsupportedCharsetException",
+                "$factory$": "IOUtils",
+                "$state$": "charArrayToOutputStreamWithString_encodingUnsupported",
+                "$params$": ["new char[10]", "IOUtilsUtils.outputStream()", "IOUtilsUtils.CHARSET_UNSUPPORTED"],
+                "$message$": "IOUtilsUtils.CHARSET_UNSUPPORTED"
+              }
+            }
+          ]
+        },
+        {
+          "name": "write",
+          "parameters": [
+            "char[]",
+            "java.io.OutputStream",
+            "java.nio.charset.Charset"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "charArrayToOutputStreamWithCharset_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["new char[10]", "(OutputStream) null", "StandardCharsets.UTF_8"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "charArrayToOutputStreamWithCharset_writeIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["new char[10]", "IOUtilsUtils.outputStreamIOException()", "StandardCharsets.UTF_8"],
+                "$message$": "\"write\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "write",
+          "parameters": [
+            "char[]",
+            "java.io.OutputStream"
+          ],
+          "tests": []
+        },
+        {
+          "name": "write",
+          "parameters": [
+            "java.lang.CharSequence",
+            "java.io.OutputStream",
+            "java.lang.String"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "charSeqToOutputStreamWithString_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.CHAR_SEQ", "(OutputStream) null", "IOUtilsUtils.CHARSET_VALID"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "charSeqToOutputStreamWithString_writeIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.CHAR_SEQ", "IOUtilsUtils.outputStreamIOException()", "IOUtilsUtils.CHARSET_VALID"],
+                "$message$": "\"write\""
+          	  }
+          	},
+          	{
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.IllegalCharsetNameException",
+                "$factory$": "IOUtils",
+                "$state$": "charSeqToOutputStreamWithString_encodingIllegal",
+                "$params$": ["IOUtilsUtils.CHAR_SEQ", "IOUtilsUtils.outputStream()", "IOUtilsUtils.CHARSET_ILLEGAL"],
+                "$message$": "IOUtilsUtils.CHARSET_ILLEGAL"
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.UnsupportedCharsetException",
+                "$factory$": "IOUtils",
+                "$state$": "charSeqToOutputStreamWithString_encodingUnsupported",
+                "$params$": ["IOUtilsUtils.CHAR_SEQ", "IOUtilsUtils.outputStream()", "IOUtilsUtils.CHARSET_UNSUPPORTED"],
+                "$message$": "IOUtilsUtils.CHARSET_UNSUPPORTED"
+              }
+            }
+          ]
+        },
+        {
+          "name": "write",
+          "parameters": [
+            "java.lang.StringBuffer",
+            "java.io.Writer"
+          ],
+          "tests": []
+        },
+        {
+          "name": "write",
+          "parameters": [
+            "java.lang.String",
+            "java.io.OutputStream",
+            "java.lang.String"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "stringToOutputStreamWithString_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["\"test\"", "(OutputStream) null", "IOUtilsUtils.CHARSET_VALID"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "stringToOutputStreamWithString_writeIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["\"test\"", "IOUtilsUtils.outputStreamIOException()", "IOUtilsUtils.CHARSET_VALID"],
+                "$message$": "\"write\""
+          	  }
+          	},
+          	{
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.IllegalCharsetNameException",
+                "$factory$": "IOUtils",
+                "$state$": "stringToOutputStreamWithString_encodingIllegal",
+                "$params$": ["\"test\"", "IOUtilsUtils.outputStream()", "IOUtilsUtils.CHARSET_ILLEGAL"],
+                "$message$": "IOUtilsUtils.CHARSET_ILLEGAL"
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.UnsupportedCharsetException",
+                "$factory$": "IOUtils",
+                "$state$": "stringToOutputStreamWithString_encodingUnsupported",
+                "$params$": ["\"test\"", "IOUtilsUtils.outputStream()", "IOUtilsUtils.CHARSET_UNSUPPORTED"],
+                "$message$": "IOUtilsUtils.CHARSET_UNSUPPORTED"
+              }
+            }
+          ]
+        },
+        {
+          "name": "write",
+          "parameters": [
+            "byte[]",
+            "java.io.Writer"
+          ],
+          "tests": []
+        },
+        {
+          "name": "write",
+          "parameters": [
+            "java.lang.String",
+            "java.io.OutputStream"
+          ],
+          "tests": []
+        },
+        {
+          "name": "write",
+          "parameters": [
+            "byte[]",
+            "java.io.OutputStream"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "byteArrayToOutputStream_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["new byte[10]", "(OutputStream) null"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "byteArrayToOutputStream_writeIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["new byte[10]", "IOUtilsUtils.outputStreamIOException()"],
+                "$message$": "\"write\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "write",
+          "parameters": [
+            "byte[]",
+            "java.io.Writer",
+            "java.lang.String"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "byteArrayToWriterWithString_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["new byte[10]", "(Writer) null", "IOUtilsUtils.CHARSET_VALID"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "byteArrayToWriterWithString_writeIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["new byte[10]", "IOUtilsUtils.writerIOException()", "IOUtilsUtils.CHARSET_VALID"],
+                "$message$": "\"write\""
+          	  }
+          	},
+          	{
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.IllegalCharsetNameException",
+                "$factory$": "IOUtils",
+                "$state$": "byteArrayToWriterWithString_encodingIllegal",
+                "$params$": ["new byte[10]", "IOUtilsUtils.writer()", "IOUtilsUtils.CHARSET_ILLEGAL"],
+                "$message$": "IOUtilsUtils.CHARSET_ILLEGAL"
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.UnsupportedCharsetException",
+                "$factory$": "IOUtils",
+                "$state$": "byteArrayToWriterWithString_encodingUnsupported",
+                "$params$": ["new byte[10]", "IOUtilsUtils.writer()", "IOUtilsUtils.CHARSET_UNSUPPORTED"],
+                "$message$": "IOUtilsUtils.CHARSET_UNSUPPORTED"
+              }
+            }
+          ]
+        },
+        {
+          "name": "write",
+          "parameters": [
+            "byte[]",
+            "java.io.Writer",
+            "java.nio.charset.Charset"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "byteArrayToWriterWithCharset_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["new byte[10]", "(Writer) null", "StandardCharsets.UTF_8"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "byteArrayToWriterWithCharset_writeIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["new byte[10]", "IOUtilsUtils.writerIOException()", "StandardCharsets.UTF_8"],
+                "$message$": "\"write\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "write",
+          "parameters": [
+            "java.lang.String",
+            "java.io.Writer"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "stringToWriter_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["\"test\"", "(Writer) null"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "stringToWriter_writeIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["\"test\"", "IOUtilsUtils.writerIOException()"],
+                "$message$": "\"write\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "write",
+          "parameters": [
+            "java.lang.StringBuffer",
+            "java.io.OutputStream",
+            "java.lang.String"
+          ],
+          "tests": []
+        },
+        {
+          "name": "write",
+          "parameters": [
+            "java.lang.StringBuffer",
+            "java.io.OutputStream"
+          ],
+          "tests": []
+        },
+        {
+          "name": "write",
+          "parameters": [
+            "java.lang.CharSequence",
+            "java.io.OutputStream",
+            "java.nio.charset.Charset"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "charSeqToOutputStreamWithCharset_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.CHAR_SEQ", "(OutputStream) null", "StandardCharsets.UTF_8"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+            "$ex$": "java.io.IOException",
+                "$state$": "charSeqToOutputStreamWithCharset_writeIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.CHAR_SEQ", "IOUtilsUtils.outputStreamIOException()", "StandardCharsets.UTF_8"],
+                "$message$": "\"write\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "read",
+          "parameters": [
+            "java.io.InputStream",
+            "byte[]",
+            "int",
+            "int"
+          ],
+          "tests":  [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStreamWithBufferAndOffset_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStreamIOException()", "new byte[100]", "0", "10"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "inputStreamWithBufferAndOffset_lengthNegative",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "new byte[100]", "0", "-1"],
+                "$message$": "\"Length must not be negative: -1\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamWithBufferAndOffset_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "new byte[100]", "0", "10"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamWithBufferAndOffset_bufferNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "(byte[]) null", "0", "10"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "read",
+          "parameters": [
+            "java.io.Reader",
+            "char[]"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "readerWithBuffer_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readerIOException()", "new char[100]"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readerWithBuffer_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(Reader) null", "new char[100]"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readerWithBuffer_bufferNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.reader()", "(char[]) null"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "read",
+          "parameters": [
+            "java.io.Reader",
+            "char[]",
+            "int",
+            "int"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "readerWithBufferAndOffset_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readerIOException()", "new char[100]", "0", "10"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "readerWithBufferAndOffset_lengthNegative",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.reader()", "new char[100]", "0", "-1"],
+                "$message$": "\"Length must not be negative: -1\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readerWithBufferAndOffset_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(Reader) null", "new char[100]", "0", "10"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "read",
+          "parameters": [
+            "java.io.InputStream",
+            "byte[]"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStreamWithBuffer_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStreamIOException()", "new byte[100]"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamWithBuffer_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "new byte[100]"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamWithBuffer_bufferNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "(byte[]) null"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "read",
+          "parameters": [
+            "java.nio.channels.ReadableByteChannel",
+            "java.nio.ByteBuffer"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "readableByteChannel_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readableByteChannelIOException()", "ByteBuffer.allocate(1024 * 4 + 1)"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readableByteChannel_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(ReadableByteChannel) null", "ByteBuffer.allocate(1024 * 4 + 1)"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readableByteChannel_bufferNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readableByteChannel()", "(ByteBuffer) null"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "close",
+          "parameters": [
+            "java.net.URLConnection"
+          ],
+          "tests": []
+        },
+        {
+          "name": "toByteArray",
+          "parameters": [
+            "java.io.Reader"
+          ],
+          "tests": []
+        },
+        {
+          "name": "toByteArray",
+          "parameters": [
+            "java.io.Reader",
+            "java.nio.charset.Charset"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readerWithCharset_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(Reader) null", "StandardCharsets.UTF_8"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "readerWithCharset_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readerIOException()", "StandardCharsets.UTF_8"],
+                "$message$": "\"read\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "toByteArray",
+          "parameters": [
+            "java.io.Reader",
+            "java.lang.String"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readerWithString_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(Reader) null", "IOUtilsUtils.CHARSET_VALID"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "readerWithString_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readerIOException()", "IOUtilsUtils.CHARSET_VALID"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.IllegalCharsetNameException",
+                "$factory$": "IOUtils",
+                "$state$": "readerWithString_encodingIllegal",
+                "$params$": ["IOUtilsUtils.reader()", "IOUtilsUtils.CHARSET_ILLEGAL"],
+                "$message$": "IOUtilsUtils.CHARSET_ILLEGAL"
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.UnsupportedCharsetException",
+                "$factory$": "IOUtils",
+                "$state$": "readerWithString_encodingUnsupported",
+                "$params$": ["IOUtilsUtils.reader()", "IOUtilsUtils.CHARSET_UNSUPPORTED"],
+                "$message$": "IOUtilsUtils.CHARSET_UNSUPPORTED"
+              }
+            }
+          ]
+        },
+        {
+          "name": "toByteArray",
+          "parameters": [
+            "java.io.InputStream",
+            "int"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamIntSize_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "1"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStreamIntSize_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStreamIOException()", "1"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "inputStreamIntSize_sizeNegative",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStreamIOException()", "-1"],
+                "$message$": "\"Size must be equal or greater than zero: -1\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStreamIntSize_sizeIllegal",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.byteArrayInputStream()", "300"],
+                "$message$": "\"Unexpected read size. current: 200, expected: 300\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "toByteArray",
+          "parameters": [
+            "java.io.InputStream",
+            "long"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamLongSize_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "(long) 1"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStreamLongSize_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStreamIOException()", "(long) 1"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "inputStreamLongSize_sizeNegative",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStreamIOException()", "(long) -1"],
+                "$message$": "\"Size must be equal or greater than zero: -1\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStreamLongSize_sizeIllegal",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.byteArrayInputStream()", "(long) 300"],
+                "$message$": "\"Unexpected read size. current: 200, expected: 300\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "inputStreamLongSize_sizeTooLarge",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStreamIOException()", "(long) Integer.MAX_VALUE + 1"],
+                "$message$": "\"Size cannot be greater than Integer max value: 2147483648\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "toByteArray",
+          "parameters": [
+            "java.io.InputStream"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStream_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStream_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStreamIOException()"],
+                "$message$": "\"read\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "toByteArray",
+          "parameters": [
+            "java.net.URI"
+          ],
+          "tests":  [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "URI_uriNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(URI) null"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "URI_uriNotAbsolute",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.uriNotAbsolute()"],
+                "$message$": "\"URI is not absolute\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.net.MalformedURLException",
+                "$state$": "URI_uriProtocolUnknown",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.uriUknownProtocol()"],
+                "$message$": "\"unknown protocol: htts\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "toByteArray",
+          "parameters": [
+            "java.net.URL"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "URL_urlNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(URL) null"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "toByteArray",
+          "parameters": [
+            "java.net.URLConnection"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "URLCon_urlConNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(URLConnection) null"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "toByteArray",
+          "parameters": [
+            "java.lang.String"
+          ],
+          "tests": []
+        },
+        {
+          "name": "copy",
+          "parameters": [
+            "java.io.Reader",
+            "java.io.OutputStream",
+            "java.lang.String"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readerToOutputStreamWithString_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(Reader) null", "IOUtilsUtils.outputStream()", "IOUtilsUtils.CHARSET_VALID"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readerToOutputStreamWithString_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.reader()", "(OutputStream) null", "IOUtilsUtils.CHARSET_VALID"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.IOException",
+                "$state$": "readerToOutputStreamWithString_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readerIOException()", "IOUtilsUtils.outputStream()", "IOUtilsUtils.CHARSET_VALID"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.IllegalCharsetNameException",
+                "$factory$": "IOUtils",
+                "$state$": "readerToOutputStreamWithString_outputEncodingIllegal",
+                "$params$": ["IOUtilsUtils.reader()", "IOUtilsUtils.outputStream()", "IOUtilsUtils.CHARSET_ILLEGAL"],
+                "$message$": "IOUtilsUtils.CHARSET_ILLEGAL"
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.UnsupportedCharsetException",
+                "$factory$": "IOUtils",
+                "$state$": "readerToOutputStreamWithString_outputEncodingUnsupported",
+                "$params$": ["IOUtilsUtils.reader()", "IOUtilsUtils.outputStream()", "IOUtilsUtils.CHARSET_UNSUPPORTED"],
+                "$message$": "IOUtilsUtils.CHARSET_UNSUPPORTED"
+              }
+            }
+          ]
+        },
+        {
+          "name": "copy",
+          "parameters": [
+            "java.io.Reader",
+            "java.io.OutputStream",
+            "java.nio.charset.Charset"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readerToOutputStreamWithCharset_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(Reader) null", "IOUtilsUtils.outputStream()", "StandardCharsets.UTF_8"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readerToOutputStreamWithCharset_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.reader()", "(OutputStream) null", "StandardCharsets.UTF_8"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.IOException",
+                "$state$": "readerToOutputStreamWithCharset_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readerIOException()", "IOUtilsUtils.outputStream()", "StandardCharsets.UTF_8"],
+                "$message$": "\"read\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "copy",
+          "parameters": [
+            "java.io.InputStream",
+            "java.io.OutputStream",
+            "int"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamToOutputStreamWithBufferSize_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "IOUtilsUtils.outputStream()", "10"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamToOutputStreamWithBufferSize_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "(OutputStream) null", "10"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.IOException",
+                "$state$": "inputStreamToOutputStreamWithBufferSize_readIOError",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStreamIOException()", "IOUtilsUtils.outputStream()", "10"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.IOException",
+                "$state$": "inputStreamToOutputStreamWithBufferSize_writeIOError",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "IOUtilsUtils.outputStreamIOException()", "10"],
+                "$message$": "\"write\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NegativeArraySizeException",
+                "$state$": "inputStreamToOutputStreamWithBufferSize_bufferSizeNegative",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "IOUtilsUtils.outputStream()", "-1"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "copy",
+          "parameters": [
+            "java.io.InputStream",
+            "java.io.Writer",
+            "java.lang.String"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamToWriterWithString_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "IOUtilsUtils.writer()", "IOUtilsUtils.CHARSET_VALID"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamToWriterWithString_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "(Writer) null", "IOUtilsUtils.CHARSET_VALID"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.IOException",
+                "$state$": "inputStreamToWriterWithString_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStreamIOException()", "IOUtilsUtils.writer()", "IOUtilsUtils.CHARSET_VALID"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.IOException",
+                "$state$": "inputStreamToWriterWithString_writeIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "IOUtilsUtils.writerIOException()", "IOUtilsUtils.CHARSET_VALID"],
+                "$message$": "\"write\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.IllegalCharsetNameException",
+                "$factory$": "IOUtils",
+                "$state$": "inputStreamToWriterWithString_inputEncodingIllegal",
+                "$params$": ["IOUtilsUtils.inputStream()", "IOUtilsUtils.writer()", "IOUtilsUtils.CHARSET_ILLEGAL"],
+                "$message$": "IOUtilsUtils.CHARSET_ILLEGAL"
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.UnsupportedCharsetException",
+                "$factory$": "IOUtils",
+                "$state$": "inputStreamToWriterWithString_inputEncodingUnsupported",
+                "$params$": ["IOUtilsUtils.inputStream()", "IOUtilsUtils.writer()", "IOUtilsUtils.CHARSET_UNSUPPORTED"],
+                "$message$": "IOUtilsUtils.CHARSET_UNSUPPORTED"
+              }
+            }
+          ]
+        },
+        {
+          "name": "copy",
+          "parameters": [
+            "java.io.InputStream",
+            "java.io.Writer",
+            "java.nio.charset.Charset"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamToWriterWithCharset_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "IOUtilsUtils.writer()", "StandardCharsets.UTF_8"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamToWriterWithCharset_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "(Writer) null", "StandardCharsets.UTF_8"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.IOException",
+                "$state$": "inputStreamToWriterWithCharset_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStreamIOException()", "IOUtilsUtils.writer()", "StandardCharsets.UTF_8"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.IOException",
+                "$state$": "inputStreamToWriterWithCharset_writeIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "IOUtilsUtils.writerIOException()", "StandardCharsets.UTF_8"],
+                "$message$": "\"write\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "copy",
+          "parameters": [
+            "java.io.InputStream",
+            "java.io.Writer"
+          ],
+          "tests": []
+        },
+        {
+          "name": "copy",
+          "parameters": [
+            "java.io.InputStream",
+            "java.io.OutputStream"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamToOutputStream_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "IOUtilsUtils.outputStream()"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamToOutputStream_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "(OutputStream) null"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.IOException",
+                "$state$": "inputStreamToOutputStream_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStreamIOException()", "IOUtilsUtils.outputStream()"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.IOException",
+                "$state$": "inputStreamToOutputStream_writeIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "IOUtilsUtils.outputStreamIOException()"],
+                "$message$": "\"write\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "copy",
+          "parameters": [
+            "java.io.Reader",
+            "java.io.OutputStream"
+          ],
+          "tests": []
+        },
+        {
+          "name": "copy",
+          "parameters": [
+            "java.io.Reader",
+            "java.io.Writer"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readerToWriter_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(Reader) null", "IOUtilsUtils.writer()"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readerToWriter_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.reader()", "(Writer) null"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.IOException",
+                "$state$": "readerToWriter_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readerIOException()", "IOUtilsUtils.writer()"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.IOException",
+                "$state$": "readerToWriter_writeIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.reader()", "IOUtilsUtils.writerIOException()"],
+                "$message$": "\"write\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "skip",
+          "parameters": [
+            "java.io.Reader",
+            "long"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "reader_toSkipNegative",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.reader()", "-1"],
+                "$message$": "\"Skip count must be non-negative, actual: -1\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "reader_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readerIOException()", "1"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "reader_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(Reader) null", "1"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "skip",
+          "parameters": [
+            "java.io.InputStream",
+            "long"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "inputStream_toSkipNegative",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "-1"],
+                "$message$": "\"Skip count must be non-negative, actual: -1\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStream_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStreamIOException()", "1"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStream_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "1"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "skip",
+          "parameters": [
+            "java.nio.channels.ReadableByteChannel",
+            "long"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "readableByteChannel_toSkipNegative",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readableByteChannel()", "-1"],
+                "$message$": "\"Skip count must be non-negative, actual: -1\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "readableByteChannel_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readableByteChannelIOException()", "1"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readableByteChannel_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(ReadableByteChannel) null", "1"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "readFully",
+          "parameters": [
+            "java.io.InputStream",
+            "int"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.EOFException",
+                "$state$": "inputStreamWithLength_EOFException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.byteArrayInputStream()", "300"],
+                "$message$": "\"Length to read: 300 actual: 200\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NegativeArraySizeException",
+                "$state$": "inputStreamWithLength_lengthNegative",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "-1"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStreamWithLength_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStreamIOException()", "10"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamWithLength_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "10"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "readFully",
+          "parameters": [
+            "java.io.InputStream",
+            "byte[]"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.EOFException",
+                "$state$": "inputStreamWithBuffer_EOFException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.byteArrayInputStream()", "new byte[300]"],
+                "$message$": "\"Length to read: 300 actual: 200\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStreamWithBuffer_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStreamIOException()", "new byte[10]"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamWithBuffer_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "new byte[10]"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamWithBuffer_bufferNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "(byte[]) null"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "readFully",
+          "parameters": [
+            "java.nio.channels.ReadableByteChannel",
+            "java.nio.ByteBuffer"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "readableByteChannel_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readableByteChannelIOException()", "ByteBuffer.allocate(1024 * 4 + 1)"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.EOFException",
+                "$state$": "readableByteChannel_EOFException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readableByteChannel()", "ByteBuffer.allocate(100)"],
+                "$message$": "\"Length to read: 100 actual: 0\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readableByteChannel_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(ReadableByteChannel) null", "ByteBuffer.allocate(100)"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readableByteChannel_bufferNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readableByteChannel()", "(ByteBuffer) null"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "readFully",
+          "parameters": [
+            "java.io.InputStream",
+            "byte[]",
+            "int",
+            "int"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.EOFException",
+                "$state$": "inputStreamWithBufferAndOffset_EOFException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.byteArrayInputStream()", "new byte[300]", "0", "300"],
+                "$message$": "\"Length to read: 300 actual: 200\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "inputStreamWithBufferAndOffset_lengthNegative",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "new byte[10]", "0", "-1"],
+                "$message$": "\"Length must not be negative: -1\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStreamWithBufferAndOffset_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStreamIOException()", "new byte[10]", "0", "1"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamWithBufferAndOffset_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "new byte[10]", "0", "1"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamWithBufferAndOffset_bufferNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "(byte[]) null", "0", "1"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "readFully",
+          "parameters": [
+            "java.io.Reader",
+            "char[]"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "readerWithBuffer_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readerIOException()", "new char[10]"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.EOFException",
+                "$state$": "readerWithBuffer_EOFException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readerEOF()", "new char[100]"],
+                "$message$": "\"Length to read: 100 actual: 0\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readerWithBuffer_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(Reader) null", "new char[10]"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readerWithBuffer_bufferNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.reader()", "(char[]) null"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "readFully",
+          "parameters": [
+            "java.io.Reader",
+            "char[]",
+            "int",
+            "int"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "readerWithBufferAndBuffer_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readerIOException()", "new char[10]", "0", "10"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.EOFException",
+                "$state$": "readerWithBufferAndBuffer_EOFException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readerEOF()", "new char[100]", "0", "100"],
+                "$message$": "\"Length to read: 100 actual: 0\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readerWithBufferAndBuffer_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(Reader) null", "new char[10]", "0", "10"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "readerWithBufferAndBuffer_lengthNegative",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.reader()", "new char[100]", "0", "-1"],
+                "$message$": "\"Length must not be negative: -1\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "toInputStream",
+          "parameters": [
+            "java.lang.CharSequence"
+          ],
+          "tests": []
+        },
+        {
+          "name": "toInputStream",
+          "parameters": [
+            "java.lang.CharSequence",
+            "java.lang.String"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "charSeqWithString_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(CharSequence) null", "IOUtilsUtils.CHARSET_VALID"]
+              }
+            },
+            {
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.UnsupportedCharsetException",
+                "$state$": "charSeqWithString_encodingUnsupported",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.CHAR_SEQ", "IOUtilsUtils.CHARSET_UNSUPPORTED"],
+                "$message$": "IOUtilsUtils.CHARSET_UNSUPPORTED"
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.IllegalCharsetNameException",
+                "$state$": "charSeqWithString_encodingIllegal",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.CHAR_SEQ", "IOUtilsUtils.CHARSET_ILLEGAL"],
+                "$message$": "IOUtilsUtils.CHARSET_ILLEGAL"
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "toInputStream",
+          "parameters": [
+            "java.lang.String"
+          ],
+          "tests": []
+        },
+        {
+          "name": "toInputStream",
+          "parameters": [
+            "java.lang.CharSequence",
+            "java.nio.charset.Charset"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "charSeqWithCharset_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(CharSequence) null", "StandardCharsets.UTF_8"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "toInputStream",
+          "parameters": [
+            "java.lang.String",
+            "java.nio.charset.Charset"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "stringWithCharset_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(String) null", "StandardCharsets.UTF_8"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "toInputStream",
+          "parameters": [
+            "java.lang.String",
+            "java.lang.String"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "stringWithString_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(String) null", "IOUtilsUtils.CHARSET_VALID"]
+              }
+            },
+            {
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.UnsupportedCharsetException",
+                "$state$": "stringWithString_encodingUnsupported",
+                "$factory$": "IOUtils",
+                "$params$": ["\"test\"", "IOUtilsUtils.CHARSET_UNSUPPORTED"],
+                "$message$": "IOUtilsUtils.CHARSET_UNSUPPORTED"
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.IllegalCharsetNameException",
+                "$state$": "stringWithString_encodingIllegal",
+                "$factory$": "IOUtils",
+                "$params$": ["\"test\"", "IOUtilsUtils.CHARSET_ILLEGAL"],
+                "$message$": "IOUtilsUtils.CHARSET_ILLEGAL"
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "closeQuietly",
+          "parameters": [
+            "java.net.Socket"
+          ],
+          "tests": []
+        },
+        {
+          "name": "closeQuietly",
+          "parameters": [
+            "java.io.Closeable[]"
+          ],
+          "tests": []
+        },
+        {
+          "name": "closeQuietly",
+          "parameters": [
+            "java.io.Closeable"
+          ],
+          "tests": []
+        },
+        {
+          "name": "closeQuietly",
+          "parameters": [
+            "java.nio.channels.Selector"
+          ],
+          "tests": []
+        },
+        {
+          "name": "closeQuietly",
+          "parameters": [
+            "java.net.ServerSocket"
+          ],
+          "tests": []
+        },
+        {
+          "name": "closeQuietly",
+          "parameters": [
+            "java.io.Reader"
+          ],
+          "tests": []
+        },
+        {
+          "name": "closeQuietly",
+          "parameters": [
+            "java.io.Writer"
+          ],
+          "tests": []
+        },
+        {
+          "name": "closeQuietly",
+          "parameters": [
+            "java.io.InputStream"
+          ],
+          "tests": []
+        },
+        {
+          "name": "closeQuietly",
+          "parameters": [
+            "java.io.OutputStream"
+          ],
+          "tests": []
+        },
+        {
+          "name": "toBufferedInputStream",
+          "parameters": [
+            "java.io.InputStream"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStreamIOException()"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "toBufferedInputStream",
+          "parameters": [
+            "java.io.InputStream",
+            "int"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "withSize_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStreamIOException()", "10"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "withSize_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "10"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "withSize_sizeNegative",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "-1"],
+                "$message$": "\"Negative initial size: -1\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "toBufferedReader",
+          "parameters": [
+            "java.io.Reader"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readerNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(Reader) null"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "toBufferedReader",
+          "parameters": [
+            "java.io.Reader",
+            "int"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "withSize_readerNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(Reader) null", "10"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "withSize_sizeNegative",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.reader()", "-1"],
+                "$message$": "\"Buffer size <= 0\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "resourceToString",
+          "parameters": [
+            "java.lang.String",
+            "java.nio.charset.Charset"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "nonExistingResource",
+                "$factory$": "IOUtils",
+                "$params$": ["\"non-existing-file.bin\"", "StandardCharsets.UTF_8"],
+                "$message$": "\"Resource not found: non-existing-file.bin\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "nameNull",
+                "$factory$": "IOUtils",
+                "$params$": ["null", "StandardCharsets.UTF_8"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "resourceToString",
+          "parameters": [
+            "java.lang.String",
+            "java.nio.charset.Charset",
+            "java.lang.ClassLoader"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "withClassLoader_nonExistingResource",
+                "$factory$": "IOUtils",
+                "$params$": ["\"non-existing-file.bin\"", "StandardCharsets.UTF_8", "ClassLoader.getSystemClassLoader()"],
+                "$message$": "\"Resource not found: non-existing-file.bin\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "withClassLoader_nameNull",
+                "$factory$": "IOUtils",
+                "$params$": ["null", "StandardCharsets.UTF_8", "ClassLoader.getSystemClassLoader()"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "resourceToByteArray",
+          "parameters": [
+            "java.lang.String"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "nonExistingResource",
+                "$factory$": "IOUtils",
+                "$params$": ["\"non-existing-file.bin\""],
+                "$message$": "\"Resource not found: non-existing-file.bin\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "nameNull",
+                "$factory$": "IOUtils",
+                "$params$": ["null"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "resourceToByteArray",
+          "parameters": [
+            "java.lang.String",
+            "java.lang.ClassLoader"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "withClassLoader_nonExistingResource",
+                "$factory$": "IOUtils",
+                "$params$": ["\"non-existing-file.bin\"", "ClassLoader.getSystemClassLoader()"],
+                "$message$": "\"Resource not found: non-existing-file.bin\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "withClassLoader_nameNull",
+                "$factory$": "IOUtils",
+                "$params$": ["null", "ClassLoader.getSystemClassLoader()"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "resourceToURL",
+          "parameters": [
+            "java.lang.String"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "nonExistingResource",
+                "$factory$": "IOUtils",
+                "$params$": ["\"non-existing-file.bin\""],
+                "$message$": "\"Resource not found: non-existing-file.bin\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "nameNull",
+                "$factory$": "IOUtils",
+                "$params$": ["null"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "resourceToURL",
+          "parameters": [
+            "java.lang.String",
+            "java.lang.ClassLoader"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "withClassLoader_nonExistingResource",
+                "$factory$": "IOUtils",
+                "$params$": ["\"non-existing-file.bin\"", "ClassLoader.getSystemClassLoader()"],
+                "$message$": "\"Resource not found: non-existing-file.bin\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "withClassLoader_nameNull",
+                "$factory$": "IOUtils",
+                "$params$": ["null", "ClassLoader.getSystemClassLoader()"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "readLines",
+          "parameters": [
+            "java.io.InputStream"
+          ],
+          "tests": []
+        },
+        {
+          "name": "readLines",
+          "parameters": [
+            "java.io.InputStream",
+            "java.nio.charset.Charset"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStreamWithCharset_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStreamIOException()", "StandardCharsets.UTF_8"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamWithCharset_inputNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "StandardCharsets.UTF_8"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "readLines",
+          "parameters": [
+            "java.io.InputStream",
+            "java.lang.String"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStreamWithString_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStreamIOException()", "IOUtilsUtils.CHARSET_VALID"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamWithString_inputNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "IOUtilsUtils.CHARSET_VALID"]
+              }
+            },
+            {
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.UnsupportedCharsetException",
+                "$state$": "inputStreamWithString_encodingUnsupported",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "IOUtilsUtils.CHARSET_UNSUPPORTED"],
+                "$message$": "IOUtilsUtils.CHARSET_UNSUPPORTED"
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.IllegalCharsetNameException",
+                "$state$": "inputStreamWithString_encodingIllegal",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "IOUtilsUtils.CHARSET_ILLEGAL"],
+                "$message$": "IOUtilsUtils.CHARSET_ILLEGAL"
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "readLines",
+          "parameters": [
+            "java.io.Reader"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "reader_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readerIOException()"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "reader_inputNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(Reader) null"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "lineIterator",
+          "parameters": [
+            "java.io.Reader"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "reader_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(Reader) null"],
+                "$message$": "\"Reader must not be null\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "lineIterator",
+          "parameters": [
+            "java.io.InputStream",
+            "java.nio.charset.Charset"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamWithCharset_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "StandardCharsets.UTF_8"]
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "lineIterator",
+          "parameters": [
+            "java.io.InputStream",
+            "java.lang.String"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamWithString_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "IOUtilsUtils.CHARSET_VALID"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.UnsupportedCharsetException",
+                "$state$": "inputStreamWithString_encodingUnsupported",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "IOUtilsUtils.CHARSET_UNSUPPORTED"],
+                "$message$": "IOUtilsUtils.CHARSET_UNSUPPORTED"
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.IllegalCharsetNameException",
+                "$state$": "inputStreamWithString_encodingIllegal",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "IOUtilsUtils.CHARSET_ILLEGAL"],
+                "$message$": "IOUtilsUtils.CHARSET_ILLEGAL"
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "writeChunked",
+          "parameters": [
+            "byte[]",
+            "java.io.OutputStream"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "byteArrayToOutputStream_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["new byte[10]", "(OutputStream) null"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "byteArrayToOutputStream_writeIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["new byte[10]", "IOUtilsUtils.outputStreamIOException()"],
+                "$message$": "\"write\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "writeChunked",
+          "parameters": [
+            "char[]",
+            "java.io.Writer"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "charArrayToWriter_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["new char[10]", "(Writer) null"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "charArrayToWriter_writeIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["new char[10]", "IOUtilsUtils.writerIOException()"],
+                "$message$": "\"write\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "writeLines",
+          "parameters": [
+            "java.util.Collection",
+            "java.lang.String",
+            "java.io.OutputStream",
+            "java.lang.String"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "outputStreamWithString_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.LIST", "IOUtilsUtils.LIST_ENDING", "(OutputStream) null", "IOUtilsUtils.CHARSET_VALID"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "outputStreamWithString_writeIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.LIST", "IOUtilsUtils.LIST_ENDING", "IOUtilsUtils.outputStreamIOException()", "IOUtilsUtils.CHARSET_VALID"],
+                "$message$": "\"write\""
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.UnsupportedCharsetException",
+                "$state$": "outputStreamWithString_encodingUnsupported",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.LIST", "IOUtilsUtils.LIST_ENDING", "IOUtilsUtils.outputStream()", "IOUtilsUtils.CHARSET_UNSUPPORTED"],
+                "$message$": "IOUtilsUtils.CHARSET_UNSUPPORTED"
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.IllegalCharsetNameException",
+                "$state$": "outputStreamWithString_encodingIllegal",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.LIST", "IOUtilsUtils.LIST_ENDING", "IOUtilsUtils.outputStream()", "IOUtilsUtils.CHARSET_ILLEGAL"],
+                "$message$": "IOUtilsUtils.CHARSET_ILLEGAL"
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "writeLines",
+          "parameters": [
+            "java.util.Collection",
+            "java.lang.String",
+            "java.io.Writer"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "writer_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.LIST", "IOUtilsUtils.LIST_ENDING", "(Writer) null"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "writer_writeIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.LIST", "IOUtilsUtils.LIST_ENDING", "IOUtilsUtils.writerIOException()"],
+                "$message$": "\"write\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "writeLines",
+          "parameters": [
+            "java.util.Collection",
+            "java.lang.String",
+            "java.io.OutputStream",
+            "java.nio.charset.Charset"
+          ],
+          "tests": [
+          	{
+          	  "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "outputStreamWithCharset_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.LIST", "IOUtilsUtils.LIST_ENDING", "(OutputStream) null", "StandardCharsets.UTF_8"]
+          	  }
+          	},
+          	{
+          	  "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "outputStreamWithCharset_writeIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.LIST", "IOUtilsUtils.LIST_ENDING", "IOUtilsUtils.outputStreamIOException()", "StandardCharsets.UTF_8"],
+                "$message$": "\"write\""
+          	  }
+          	}
+          ]
+        },
+        {
+          "name": "writeLines",
+          "parameters": [
+            "java.util.Collection",
+            "java.lang.String",
+            "java.io.OutputStream"
+          ],
+          "tests": []
+        },
+        {
+          "name": "copyLarge",
+          "parameters": [
+            "java.io.InputStream",
+            "java.io.OutputStream",
+            "byte[]"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamToOutputStreamWithBuffer_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "IOUtilsUtils.outputStream()", "new byte[500]"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamToOutputStreamWithBuffer_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "(OutputStream) null", "new byte[500]"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamToOutputStreamWithBuffer_bufferNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "IOUtilsUtils.outputStream()", "(byte[]) null"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.IOException",
+                "$state$": "inputStreamToOutputStreamWithBuffer_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStreamIOException()", "IOUtilsUtils.outputStream()", "new byte[50]"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.IOException",
+                "$state$": "inputStreamToOutputStreamWithBuffer_writeIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "IOUtilsUtils.outputStreamIOException()", "new byte[50]"],
+                "$message$": "\"write\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "copyLarge",
+          "parameters": [
+            "java.io.Reader",
+            "java.io.Writer",
+            "long",
+            "long",
+            "char[]"
+          ],
+          "tests":  [
+          {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readerToWriterWithOffsetAndBuffer_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(Reader) null", "IOUtilsUtils.writer()", "10", "10", "new char[10]"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readerToWriterWithOffsetAndBuffer_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.reader()", "(Writer) null", "0", "100", "new char[10]"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readerToWriterWithOffsetAndBuffer_bufferNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.reader()", "IOUtilsUtils.writer()", "0", "100", "(char[]) null"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.IOException",
+                "$state$": "readerToWriterWithOffsetAndBuffer_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readerIOException()", "IOUtilsUtils.writer()", "10", "10",  "new char[10]"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.IOException",
+                "$state$": "readerToWriterWithOffsetAndBuffer_writeIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.reader()", "IOUtilsUtils.writerIOException()", "0", "9",  "new char[10]"],
+                "$message$": "\"write\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.IOException",
+                "$state$": "readerToWriterWithOffsetAndBuffer_offsetInvalid",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.charArrayReader()", "IOUtilsUtils.charArrayWriter()", "1000", "100", "new char[10]"],
+                "$message$": "\"Chars to skip: 1000 actual: 200\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "copyLarge",
+          "parameters": [
+            "java.io.InputStream",
+            "java.io.OutputStream"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamToOutputStream_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "IOUtilsUtils.outputStream()"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamToOutputStream_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "(OutputStream) null"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.IOException",
+                "$state$": "inputStreamToOutputStream_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStreamIOException()", "IOUtilsUtils.outputStream()"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.IOException",
+                "$state$": "inputStreamToOutputStream_writeIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "IOUtilsUtils.outputStreamIOException()"],
+                "$message$": "\"write\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "copyLarge",
+          "parameters": [
+            "java.io.Reader",
+            "java.io.Writer",
+            "long",
+            "long"
+          ],
+          "tests": [
+          {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readerToWriterWithOffset_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(Reader) null", "IOUtilsUtils.writer()", "10", "10"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readerToWriterWithOffset_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.reader()", "(Writer) null", "0", "200"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.IOException",
+                "$state$": "readerToWriterWithOffset_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readerIOException()", "IOUtilsUtils.writer()", "10", "10"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.IOException",
+                "$state$": "readerToWriterWithOffset_writeIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.reader()", "IOUtilsUtils.writerIOException()", "0", "9"],
+                "$message$": "\"write\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.EOFException",
+                "$state$": "readerToWriterWithOffset_offsetInvalid",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.charArrayReader()", "IOUtilsUtils.charArrayWriter()", "1000", "100"],
+                "$message$": "\"Chars to skip: 1000 actual: 200\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "copyLarge",
+          "parameters": [
+            "java.io.InputStream",
+            "java.io.OutputStream",
+            "long",
+            "long"
+          ],
+          "tests": [
+          {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamToOutputStreamWithOffset_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "IOUtilsUtils.outputStream()", "10", "10"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamToOutputStreamWithOffset_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "(OutputStream) null", "10", "10"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.IOException",
+                "$state$": "inputStreamToOutputStreamWithOffset_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStreamIOException()", "IOUtilsUtils.outputStream()", "10", "10"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.IOException",
+                "$state$": "inputStreamToOutputStreamWithOffset_writeIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "IOUtilsUtils.outputStreamIOException()", "10", "10"],
+                "$message$": "\"write\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.IOException",
+                "$state$": "inputStreamToOutputStreamWithOffset_offsetInvalid",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.byteArrayInputStream()", "IOUtilsUtils.byteArrayOutputStream()", "1000", "100"],
+                "$message$": "\"Bytes to skip: 1000 actual: 200\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "copyLarge",
+          "parameters": [
+            "java.io.Reader",
+            "java.io.Writer",
+            "char[]"
+          ],
+          "tests": [
+          {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readerToWriterWithBuffer_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(Reader) null", "IOUtilsUtils.writer()", "new char[10]"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readerToWriterWithBuffer_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.reader()", "(Writer) null", "new char[10]"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readerToWriterWithBuffer_bufferNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.reader()", "IOUtilsUtils.writer()", "(char[]) null"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.IOException",
+                "$state$": "readerToWriterWithBuffer_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readerIOException()", "IOUtilsUtils.writer()", "new char[10]"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.IOException",
+                "$state$": "readerToWriterWithBuffer_writeIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.reader()", "IOUtilsUtils.writerIOException()", "new char[10]"],
+                "$message$": "\"write\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "copyLarge",
+          "parameters": [
+            "java.io.Reader",
+            "java.io.Writer"
+          ],
+          "tests": [
+          {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readerToWriter_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(Reader) null", "IOUtilsUtils.writer()"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readerToWriter_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.reader()", "(Writer) null"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.IOException",
+                "$state$": "readerToWriter_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readerIOException()", "IOUtilsUtils.writer()"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.IOException",
+                "$state$": "readerToWriter_writeIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.reader()", "IOUtilsUtils.writerIOException()"],
+                "$message$": "\"write\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "copyLarge",
+          "parameters": [
+            "java.io.InputStream",
+            "java.io.OutputStream",
+            "long",
+            "long",
+            "byte[]"
+          ],
+          "tests": [
+          {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamToOutputStreamWithOffsetAndBuffer_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "IOUtilsUtils.outputStream()", "10", "10", "new byte[500]"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamToOutputStreamWithOffsetAndBuffer_outNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "(OutputStream) null", "10", "10", "new byte[500]"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStreamToOutputStreamWithOffsetAndBuffer_bufferNull",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "IOUtilsUtils.outputStream()", "10", "10", "(byte[]) null"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.IOException",
+                "$state$": "inputStreamToOutputStreamWithOffsetAndBuffer_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStreamIOException()", "IOUtilsUtils.outputStream()", "10", "10", "new byte[500]"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.IOException",
+                "$state$": "inputStreamToOutputStreamWithOffsetAndBuffer_writeIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "IOUtilsUtils.outputStreamIOException()", "10", "10", "new byte[500]"],
+                "$message$": "\"write\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+              	"$ex$": "java.io.IOException",
+                "$state$": "inputStreamToOutputStreamWithOffsetAndBuffer_offsetInvalid",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.byteArrayInputStream()", "IOUtilsUtils.byteArrayOutputStream()", "1000", "100", "new byte[10]"],
+                "$message$": "\"Bytes to skip: 1000 actual: 200\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "contentEqualsIgnoreEOL",
+          "parameters": [
+            "java.io.Reader",
+            "java.io.Reader"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "input1Null",
+                "$factory$": "IOUtils",
+                "$params$": ["(Reader) null", "IOUtilsUtils.charArrayReader()"]
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "input2Null",
+                "$factory$": "IOUtils",
+                "$params$": ["(Reader) null", "IOUtilsUtils.charArrayReader()"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "input1ReadIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readerIOException()", "IOUtilsUtils.charArrayReader()"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "input2ReadIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.charArrayReader()", "IOUtilsUtils.readerIOException()"],
+                "$message$": "\"read\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "skipFully",
+          "parameters": [
+            "java.nio.channels.ReadableByteChannel",
+            "long"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "readableByteChannel_toSkipNegative",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readableByteChannel()", "-1"],
+                "$message$": "\"Bytes to skip must not be negative: -1\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.EOFException",
+                "$state$": "readableByteChannel_toSkipInvalid",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readableByteChannel()", "10"],
+                "$message$": "\"Bytes to skip: 10 actual: 0\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "readableByteChannel_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readableByteChannelIOException()", "10"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "readableByteChannel_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(ReadableByteChannel) null", "10"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "skipFully",
+          "parameters": [
+            "java.io.Reader",
+            "long"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "reader_toSkipNegative",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.reader()", "-1"],
+                "$message$": "\"Skip count must be non-negative, actual: -1\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.EOFException",
+                "$state$": "reader_toSkipInvalid",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readerEOF()", "10"],
+                "$message$": "\"Chars to skip: 10 actual: 0\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "reader_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.readerIOException()", "10"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "reader_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(Reader) null", "10"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "skipFully",
+          "parameters": [
+            "java.io.InputStream",
+            "long"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "inputStream_toSkipNegative",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStream()", "-1"],
+                "$message$": "\"Bytes to skip must not be negative: -1\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.EOFException",
+                "$state$": "inputStream_toSkipInvalid",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStreamEOF()", "10"],
+                "$message$": "\"Bytes to skip: 10 actual: 0\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStream_readIOException",
+                "$factory$": "IOUtils",
+                "$params$": ["IOUtilsUtils.inputStreamIOException()", "10"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStream_inNull",
+                "$factory$": "IOUtils",
+                "$params$": ["(InputStream) null", "10"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "IOUtils",
+          "parameters": [],
+          "tests": []
+        }
+      ]
+    }
+  ]
+}

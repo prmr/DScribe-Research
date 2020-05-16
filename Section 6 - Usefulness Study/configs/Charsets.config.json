@@ -1,0 +1,54 @@
+{
+  "classes": [
+    {
+      "fullname": "org.apache.commons.io.Charsets",
+      "methods": [
+        {
+          "name": "toCharset",
+          "parameters": [
+            "java.lang.String"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.IllegalCharsetNameException",
+                "$factory$": "Charsets",
+                "$state$": "charsetNameIllegal",
+                "$params$": ["\"@*!?\""],
+                "$message$": "\"@*!?\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.nio.charset.UnsupportedCharsetException",
+                "$factory$": "Charsets",
+                "$state$": "charsetUnsupported",
+                "$params$": ["\"unsupported\""],
+                "$message$": "\"unsupported\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "toCharset",
+          "parameters": [
+            "java.nio.charset.Charset"
+          ],
+          "tests": []
+        },
+        {
+          "name": "requiredCharsets",
+          "parameters": [],
+          "tests": []
+        },
+        {
+          "name": "Charsets",
+          "parameters": [],
+          "tests": []
+        }
+      ]
+    }
+  ]
+}

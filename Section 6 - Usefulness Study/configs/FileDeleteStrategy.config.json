@@ -1,0 +1,82 @@
+{
+  "classes": [
+    {
+      "fullname": "org.apache.commons.io.FileDeleteStrategy",
+      "methods": [
+        {
+          "name": "toString",
+          "parameters": [],
+          "tests": []
+        },
+        {
+          "name": "delete",
+          "parameters": [
+            "java.io.File"
+          ],
+          "tests": [
+            {
+              "templateName": "template2",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "fileNull",
+                "$factory$": "FileDeleteStrategyUtils.normal",
+                "$params$": ["(File) null"]
+              }
+            },
+            {
+              "templateName": "template4",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "deletionFailed",
+                "$factory$": "FileDeleteStrategyUtils.normal",
+                "$params$": ["FileDeleteStrategyUtils.nonEmptyDir()"],
+                "$message$": "\"testResources/dir\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "deleteQuietly",
+          "parameters": [
+            "java.io.File"
+          ],
+          "tests": []
+        },
+        {
+          "name": "doDelete",
+          "parameters": [
+            "java.io.File"
+          ],
+          "tests": [
+            {
+              "templateName": "template2",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "fileNull",
+                "$factory$": "FileDeleteStrategyUtils.normal",
+                "$params$": ["(File) null"]
+              }
+            },
+            {
+              "templateName": "template4",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "deletionFailed",
+                "$factory$": "FileDeleteStrategyUtils.normal",
+                "$params$": ["FileDeleteStrategyUtils.nonEmptyDir()"],
+                "$message$": "\"testResources/dir\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "FileDeleteStrategy",
+          "parameters": [
+            "java.lang.String"
+          ],
+          "tests": []
+        }
+      ]
+    }
+  ]
+}

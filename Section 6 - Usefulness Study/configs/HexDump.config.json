@@ -1,0 +1,93 @@
+{
+  "classes": [
+    {
+      "fullname": "org.apache.commons.io.HexDump",
+      "methods": [
+        {
+          "name": "dump",
+          "parameters": [
+            "byte[]",
+            "long",
+            "java.io.OutputStream",
+            "int"
+          ],
+          "tests": [
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$factory$": "HexDump",
+                "$state$": "streamNull",
+                "$params$": ["HexDumpUtils.bytes()", "0xFF000000", "(OutputStream) null", "0"],
+                "$message$": "\"cannot write to nullstream\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.ArrayIndexOutOfBoundsException",
+                "$factory$": "HexDump",
+                "$state$": "indexTooLarge",
+                "$params$": ["HexDumpUtils.bytes()", "0xFF000000", "HexDumpUtils.outputStream()", "HexDumpUtils.bytes().length"],
+                "$message$": "\"illegal index: \" + HexDumpUtils.bytes().length  + \" into array of length \"
+                    + HexDumpUtils.bytes().length"
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.ArrayIndexOutOfBoundsException",
+                "$factory$": "HexDump",
+                "$state$": "indexNegative",
+                "$params$": ["HexDumpUtils.bytes()", "0xFF000000", "HexDumpUtils.outputStream()", "-1"],
+                "$message$": "\"illegal index: -1 into array of length \"
+                    + HexDumpUtils.bytes().length"
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$factory$": "HexDump",
+                "$state$": "streamWriteIOException",
+                "$params$": ["HexDumpUtils.bytes()", "0xFF000000", "HexDumpUtils.outputStreamWriteIOException()", "1"],
+                "$message$": "\"write\""
+              }
+             },
+             {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$factory$": "HexDump",
+                "$state$": "streamFlushIOException",
+                "$params$": ["HexDumpUtils.bytes()", "0xFF000000", "HexDumpUtils.outputStreamFlushIOException()", "1"],
+                "$message$": "\"flush\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "dump",
+          "parameters": [
+            "java.lang.StringBuilder",
+            "byte"
+          ],
+          "tests": []
+        },
+        {
+          "name": "dump",
+          "parameters": [
+            "java.lang.StringBuilder",
+            "long"
+          ],
+          "tests": []
+        },
+        {
+          "name": "HexDump",
+          "parameters": [],
+          "tests": []
+        }
+      ]
+    }
+  ]
+}

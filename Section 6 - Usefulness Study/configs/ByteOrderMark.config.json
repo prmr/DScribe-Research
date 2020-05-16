@@ -1,0 +1,114 @@
+{
+  "classes": [
+    {
+      "fullname": "org.apache.commons.io.ByteOrderMark",
+      "methods": [
+        {
+          "name": "get",
+          "parameters": [
+            "int"
+          ],
+          "tests": [
+          	{
+              "templateName": "template4", 
+              "placeholders": {
+                "$ex$": "java.lang.ArrayIndexOutOfBoundsException",
+                "$state$": "posTooLarge",
+                "$factory$": "ByteOrderMarkUtils.testBOM",
+                "$params$": ["2"],
+                "$message$": "\"2\""
+              }
+            },
+            {
+              "templateName": "template4", 
+              "placeholders": {
+                "$ex$": "java.lang.ArrayIndexOutOfBoundsException",
+                "$state$": "posNegative",
+                "$factory$": "ByteOrderMarkUtils.testBOM",
+                "$params$": ["-1"],
+                "$message$": "\"-1\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "equals",
+          "parameters": [
+            "java.lang.Object"
+          ],
+          "tests": []
+        },
+        {
+          "name": "toString",
+          "parameters": [],
+          "tests": []
+        },
+        {
+          "name": "hashCode",
+          "parameters": [],
+          "tests": []
+        },
+        {
+          "name": "length",
+          "parameters": [],
+          "tests": []
+        },
+        {
+          "name": "getBytes",
+          "parameters": [],
+          "tests": []
+        },
+        {
+          "name": "getCharsetName",
+          "parameters": [],
+          "tests": []
+        },
+        {
+          "name": "ByteOrderMark",
+          "parameters": [
+            "java.lang.String",
+            "int[]"
+          ],
+          "tests": [
+            {
+              "templateName": "template5", 
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "charsetNameNull",
+                "$params$": ["null", "1"],
+                "$message$": "\"No charsetName specified\""
+              }
+            },
+            {
+              "templateName": "template5", 
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "charsetNameEmpty",
+                "$params$": ["\"\"", "1"],
+                "$message$": "\"No charsetName specified\""
+              }
+            },
+            {
+              "templateName": "template5", 
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "bytesNull",
+                "$params$": ["\"test\"", "(int[]) null"],
+                "$message$": "\"No bytes specified\""
+              }
+            },
+            {
+              "templateName": "template5", 
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "bytesEmpty",
+                "$params$": ["\"test\""],
+                "$message$": "\"No bytes specified\""
+              }
+            }
+          ] 
+        }
+      ]
+    }
+  ]
+}

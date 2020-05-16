@@ -1,0 +1,916 @@
+{
+  "classes": [
+    {
+      "fullname": "org.apache.commons.io.EndianUtils",
+      "methods": [
+        {
+          "name": "read",
+          "parameters": [
+            "java.io.InputStream"
+          ],
+          "tests": []
+        },
+        {
+          "name": "swapShort",
+          "parameters": [
+            "short"
+          ],
+          "tests": []
+        },
+        {
+          "name": "swapInteger",
+          "parameters": [
+            "int"
+          ],
+          "tests": []
+        },
+        {
+          "name": "swapLong",
+          "parameters": [
+            "long"
+          ],
+          "tests": []
+        },
+        {
+          "name": "swapFloat",
+          "parameters": [
+            "float"
+          ],
+          "tests": []
+        },
+        {
+          "name": "swapDouble",
+          "parameters": [
+            "double"
+          ],
+          "tests": []
+        },
+        {
+          "name": "writeSwappedShort",
+          "parameters": [
+            "byte[]",
+            "int",
+            "short"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "byteArray_dataNull",
+                "$factory$": "EndianUtils",
+                "$params$": ["(byte[]) null", "0", "EndianUtilsUtils.SHORT"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.ArrayIndexOutOfBoundsException",
+                "$state$": "byteArray_offsetTooLarge",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.bytes()", "7", "EndianUtilsUtils.SHORT"],
+              	"$message$": "\"8\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.ArrayIndexOutOfBoundsException",
+                "$state$": "byteArray_offsetNegative",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.bytes()", "-1", "EndianUtilsUtils.SHORT"],
+              	"$message$": "\"-1\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "writeSwappedShort",
+          "parameters": [
+            "java.io.OutputStream",
+            "short"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "outputStream_outputNull",
+                "$factory$": "EndianUtils",
+                "$params$": ["(OutputStream) null", "EndianUtilsUtils.SHORT"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "outputStream_writeIOError",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.outputStreamIOException()", "EndianUtilsUtils.SHORT"],
+              	"$message$": "\"write\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "readSwappedShort",
+          "parameters": [
+            "java.io.InputStream"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStream_inputNull",
+                "$factory$": "EndianUtils",
+                "$params$": ["(InputStream) null"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStream_readIOError",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.inputStreamIOException()"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStream_unexpectedEOF",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.inputStreamEmpty()"],
+                "$message$": "\"Unexpected EOF reached\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "readSwappedShort",
+          "parameters": [
+            "byte[]",
+            "int"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "byteArray_dataNull",
+                "$factory$": "EndianUtils",
+                "$params$": ["(byte[]) null", "0"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.ArrayIndexOutOfBoundsException",
+                "$state$": "byteArray_offsetTooLarge",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.bytes()", "7"],
+              	"$message$": "\"8\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.ArrayIndexOutOfBoundsException",
+                "$state$": "byteArray_offsetNegative",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.bytes()", "-1"],
+              	"$message$": "\"-1\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "readSwappedUnsignedShort",
+          "parameters": [
+            "java.io.InputStream"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStream_inputNull",
+                "$factory$": "EndianUtils",
+                "$params$": ["(InputStream) null"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStream_readIOError",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.inputStreamIOException()"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStream_unexpectedEOF",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.inputStreamEmpty()"],
+                "$message$": "\"Unexpected EOF reached\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "readSwappedUnsignedShort",
+          "parameters": [
+            "byte[]",
+            "int"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "byteArray_dataNull",
+                "$factory$": "EndianUtils",
+                "$params$": ["(byte[]) null", "0"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.ArrayIndexOutOfBoundsException",
+                "$state$": "byteArray_offsetTooLarge",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.bytes()", "7"],
+              	"$message$": "\"8\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.ArrayIndexOutOfBoundsException",
+                "$state$": "byteArray_offsetNegative",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.bytes()", "-1"],
+              	"$message$": "\"-1\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "writeSwappedInteger",
+          "parameters": [
+            "java.io.OutputStream",
+            "int"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "outputStream_outputNull",
+                "$factory$": "EndianUtils",
+                "$params$": ["(OutputStream) null", "EndianUtilsUtils.INTEGER"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "outputStream_writeIOError",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.outputStreamIOException()", "EndianUtilsUtils.INTEGER"],
+              	"$message$": "\"write\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "writeSwappedInteger",
+          "parameters": [
+            "byte[]",
+            "int",
+            "int"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "byteArray_dataNull",
+                "$factory$": "EndianUtils",
+                "$params$": ["(byte[]) null", "0", "EndianUtilsUtils.INTEGER"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.ArrayIndexOutOfBoundsException",
+                "$state$": "byteArray_offsetTooLarge",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.bytes()", "5", "EndianUtilsUtils.INTEGER"],
+              	"$message$": "\"8\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.ArrayIndexOutOfBoundsException",
+                "$state$": "byteArray_offsetNegative",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.bytes()", "-1", "EndianUtilsUtils.INTEGER"],
+              	"$message$": "\"-1\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "readSwappedInteger",
+          "parameters": [
+            "byte[]",
+            "int"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "byteArray_dataNull",
+                "$factory$": "EndianUtils",
+                "$params$": ["(byte[]) null", "0"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.ArrayIndexOutOfBoundsException",
+                "$state$": "byteArray_offsetTooLarge",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.bytes()", "5"],
+              	"$message$": "\"8\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.ArrayIndexOutOfBoundsException",
+                "$state$": "byteArray_offsetNegative",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.bytes()", "-1"],
+              	"$message$": "\"-1\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "readSwappedInteger",
+          "parameters": [
+            "java.io.InputStream"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStream_inputNull",
+                "$factory$": "EndianUtils",
+                "$params$": ["(InputStream) null"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStream_readIOError",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.inputStreamIOException()"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStream_unexpectedEOF",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.inputStreamEmpty()"],
+                "$message$": "\"Unexpected EOF reached\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "readSwappedUnsignedInteger",
+          "parameters": [
+            "byte[]",
+            "int"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "byteArray_dataNull",
+                "$factory$": "EndianUtils",
+                "$params$": ["(byte[]) null", "0"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.ArrayIndexOutOfBoundsException",
+                "$state$": "byteArray_offsetTooLarge",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.bytes()", "5"],
+              	"$message$": "\"8\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.ArrayIndexOutOfBoundsException",
+                "$state$": "byteArray_offsetNegative",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.bytes()", "-1"],
+              	"$message$": "\"-1\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "readSwappedUnsignedInteger",
+          "parameters": [
+            "java.io.InputStream"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStream_inputNull",
+                "$factory$": "EndianUtils",
+                "$params$": ["(InputStream) null"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStream_readIOError",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.inputStreamIOException()"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStream_unexpectedEOF",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.inputStreamEmpty()"],
+                "$message$": "\"Unexpected EOF reached\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "writeSwappedLong",
+          "parameters": [
+            "byte[]",
+            "int",
+            "long"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "byteArray_dataNull",
+                "$factory$": "EndianUtils",
+                "$params$": ["(byte[]) null", "0", "EndianUtilsUtils.LONG"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.ArrayIndexOutOfBoundsException",
+                "$state$": "byteArray_offsetTooLarge",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.bytes()", "1", "EndianUtilsUtils.LONG"],
+              	"$message$": "\"8\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.ArrayIndexOutOfBoundsException",
+                "$state$": "byteArray_offsetNegative",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.bytes()", "-1", "EndianUtilsUtils.LONG"],
+              	"$message$": "\"-1\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "writeSwappedLong",
+          "parameters": [
+            "java.io.OutputStream",
+            "long"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "outputStream_outputNull",
+                "$factory$": "EndianUtils",
+                "$params$": ["(OutputStream) null", "EndianUtilsUtils.LONG"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "outputStream_writeIOError",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.outputStreamIOException()", "EndianUtilsUtils.LONG"],
+              	"$message$": "\"write\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "readSwappedLong",
+          "parameters": [
+            "java.io.InputStream"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStream_inputNull",
+                "$factory$": "EndianUtils",
+                "$params$": ["(InputStream) null"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStream_readIOError",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.inputStreamIOException()"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStream_unexpectedEOF",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.inputStreamEmpty()"],
+                "$message$": "\"Unexpected EOF reached\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "readSwappedLong",
+          "parameters": [
+            "byte[]",
+            "int"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "byteArray_dataNull",
+                "$factory$": "EndianUtils",
+                "$params$": ["(byte[]) null", "0"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.ArrayIndexOutOfBoundsException",
+                "$state$": "byteArray_offsetTooLarge",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.bytes()", "1"],
+              	"$message$": "\"8\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.ArrayIndexOutOfBoundsException",
+                "$state$": "byteArray_offsetNegative",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.bytes()", "-1"],
+              	"$message$": "\"-1\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "writeSwappedFloat",
+          "parameters": [
+            "byte[]",
+            "int",
+            "float"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "byteArray_dataNull",
+                "$factory$": "EndianUtils",
+                "$params$": ["(byte[]) null", "0", "EndianUtilsUtils.FLOAT"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.ArrayIndexOutOfBoundsException",
+                "$state$": "byteArray_offsetTooLarge",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.bytes()", "5", "EndianUtilsUtils.FLOAT"],
+              	"$message$": "\"8\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.ArrayIndexOutOfBoundsException",
+                "$state$": "byteArray_offsetNegative",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.bytes()", "-1", "EndianUtilsUtils.FLOAT"],
+              	"$message$": "\"-1\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "writeSwappedFloat",
+          "parameters": [
+            "java.io.OutputStream",
+            "float"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "outputStream_outputNull",
+                "$factory$": "EndianUtils",
+                "$params$": ["(OutputStream) null", "EndianUtilsUtils.FLOAT"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "outputStream_writeIOError",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.outputStreamIOException()", "EndianUtilsUtils.FLOAT"],
+              	"$message$": "\"write\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "readSwappedFloat",
+          "parameters": [
+            "java.io.InputStream"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStream_inputNull",
+                "$factory$": "EndianUtils",
+                "$params$": ["(InputStream) null"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStream_readIOError",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.inputStreamIOException()"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStream_unexpectedEOF",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.inputStreamEmpty()"],
+                "$message$": "\"Unexpected EOF reached\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "readSwappedFloat",
+          "parameters": [
+            "byte[]",
+            "int"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "byteArray_dataNull",
+                "$factory$": "EndianUtils",
+                "$params$": ["(byte[]) null", "0"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.ArrayIndexOutOfBoundsException",
+                "$state$": "byteArray_offsetTooLarge",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.bytes()", "5"],
+              	"$message$": "\"8\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.ArrayIndexOutOfBoundsException",
+                "$state$": "byteArray_offsetNegative",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.bytes()", "-1"],
+              	"$message$": "\"-1\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "writeSwappedDouble",
+          "parameters": [
+            "byte[]",
+            "int",
+            "double"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "byteArray_dataNull",
+                "$factory$": "EndianUtils",
+                "$params$": ["(byte[]) null", "0", "EndianUtilsUtils.DOUBLE"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.ArrayIndexOutOfBoundsException",
+                "$state$": "byteArray_offsetTooLarge",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.bytes()", "1", "EndianUtilsUtils.DOUBLE"],
+              	"$message$": "\"8\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.ArrayIndexOutOfBoundsException",
+                "$state$": "byteArray_offsetNegative",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.bytes()", "-1", "EndianUtilsUtils.DOUBLE"],
+              	"$message$": "\"-1\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "writeSwappedDouble",
+          "parameters": [
+            "java.io.OutputStream",
+            "double"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "outputStream_outputNull",
+                "$factory$": "EndianUtils",
+                "$params$": ["(OutputStream) null", "EndianUtilsUtils.DOUBLE"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "outputStream_writeIOError",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.outputStreamIOException()", "EndianUtilsUtils.DOUBLE"],
+              	"$message$": "\"write\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "readSwappedDouble",
+          "parameters": [
+            "java.io.InputStream"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "inputStream_inputNull",
+                "$factory$": "EndianUtils",
+                "$params$": ["(InputStream) null"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStream_readIOError",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.inputStreamIOException()"],
+                "$message$": "\"read\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "inputStream_unexpectedEOF",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.inputStreamEmpty()"],
+                "$message$": "\"Unexpected EOF reached\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "readSwappedDouble",
+          "parameters": [
+            "byte[]",
+            "int"
+          ],
+          "tests": [
+            {
+              "templateName": "template1",
+              "placeholders": {
+                "$ex$": "java.lang.NullPointerException",
+                "$state$": "byteArray_dataNull",
+                "$factory$": "EndianUtils",
+                "$params$": ["(byte[]) null", "0"]
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.ArrayIndexOutOfBoundsException",
+                "$state$": "byteArray_offsetTooLarge",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.bytes()", "1"],
+              	"$message$": "\"8\""
+              }
+            },
+            {
+              "templateName": "template3",
+              "placeholders": {
+                "$ex$": "java.lang.ArrayIndexOutOfBoundsException",
+                "$state$": "byteArray_offsetNegative",
+                "$factory$": "EndianUtils",
+                "$params$": ["EndianUtilsUtils.bytes()", "-1"],
+              	"$message$": "\"-1\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "EndianUtils",
+          "parameters": [],
+          "tests": []
+        }
+      ]
+    }
+  ]
+}

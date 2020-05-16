@@ -1,0 +1,140 @@
+{
+  "classes": [
+    {
+      "fullname": "org.apache.commons.io.LineIterator",
+      "methods": [
+        {
+          "name": "remove",
+          "parameters": [],
+          "tests": [
+            {
+              "templateName": "template4",
+              "placeholders": {
+                "$ex$": "java.lang.UnsupportedOperationException",
+                "$state$": "always",
+                "$factory$": "LineIteratorUtils.lineIteratorNoLines",
+                "$params$": [],
+                "$message$": "\"Remove unsupported on LineIterator\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "hasNext",
+          "parameters": [],
+          "tests": [
+            {
+              "templateName": "template4",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalStateException",
+                "$state$": "IOException",
+                "$factory$": "org.apache.commons.io.LineIteratorUtils.lineIteratorReadIOException",
+                "$params$": [],
+                "$message$": "\"java.io.IOException: hasNext\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "next",
+          "parameters": [],
+          "tests": [
+            {
+              "templateName": "template4",
+              "placeholders": {
+                "$ex$": "java.util.NoSuchElementException",
+                "$state$": "noMoreLines",
+                "$factory$": "org.apache.commons.io.LineIteratorUtils.lineIteratorNoLines",
+                "$params$": [],
+                "$message$": "\"No more lines\""
+              }
+            },
+            {
+              "templateName": "template4",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalStateException",
+                "$state$": "IOExceptionHasNext",
+                "$factory$": "org.apache.commons.io.LineIteratorUtils.lineIteratorReadIOException",
+                "$params$": [],
+                "$message$": "\"java.io.IOException: hasNext\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "close",
+          "parameters": [],
+          "tests": [
+            {
+              "templateName": "template4",
+              "placeholders": {
+                "$ex$": "java.io.IOException",
+                "$state$": "IOException",
+                "$factory$": "LineIteratorUtils.lineIteratorCloseIOException",
+                "$params$": [],
+                "$message$": "\"close\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "isValidLine",
+          "parameters": [
+            "java.lang.String"
+          ],
+          "tests": []
+        },
+        {
+          "name": "nextLine",
+          "parameters": [],
+          "tests": [
+            {
+              "templateName": "template4",
+              "placeholders": {
+                "$ex$": "java.util.NoSuchElementException",
+                "$state$": "noMoreLines",
+                "$factory$": "org.apache.commons.io.LineIteratorUtils.lineIteratorNoLines",
+                "$params$": [],
+                "$message$": "\"No more lines\""
+              }
+            },
+            {
+              "templateName": "template4",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalStateException",
+                "$state$": "IOExceptionHasNext",
+                "$factory$": "org.apache.commons.io.LineIteratorUtils.lineIteratorReadIOException",
+                "$params$": [],
+                "$message$": "\"java.io.IOException: hasNext\""
+              }
+            }
+          ]
+        },
+        {
+          "name": "closeQuietly",
+          "parameters": [
+            "org.apache.commons.io.LineIterator"
+          ],
+          "tests": []
+        },
+        {
+          "name": "LineIterator",
+          "parameters": [
+            "java.io.Reader"
+          ],
+          "tests": [
+            {
+              "templateName": "template5",
+              "placeholders": {
+                "$ex$": "java.lang.IllegalArgumentException",
+                "$state$": "readerNull",
+                "$params$": ["(Reader) null"],
+                "$message$": "\"Reader must not be null\""
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
