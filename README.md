@@ -1,6 +1,21 @@
 # DScribe-Research
 This repository contains the data artifact for our research on unit test generation for documentation.
 
+## License and Attribution
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />
+
+The content of this repository is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
+To indicate attribution, please link to this repository and cite the following technical report:
+
+```
+Mathieu Nassif, Alexa Hernandez, Ashvitha Sridharan, and Martin P. Robillard.
+Generating Unit Tests for Documentation.
+ArXiv preprint XXX, 12 pages.
+18 May 2020.
+```
+
 ## Structure
 
 - `Section 6 - Usefulness Study`: this folder contains the configuration and results of our application of DScribe to the Apache Commons IO project, as well as an Excel file detailing all identified *exception specification units* (ESU). The internal structure is as follow:
