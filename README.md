@@ -9,12 +9,10 @@ The content of this repository is licensed under a <a rel="license" href="http:/
 
 To indicate attribution, please link to this repository and cite the following technical report:
 
-```
 Mathieu Nassif, Alexa Hernandez, Ashvitha Sridharan, and Martin P. Robillard.
 Generating Unit Tests for Documentation.
-ArXiv preprint XXX, 12 pages.
+ArXiv preprint [arXiv:2005.08750](https://arxiv.org/abs/2005.08750), 12 pages.
 18 May 2020.
-```
 
 ## Structure
 
